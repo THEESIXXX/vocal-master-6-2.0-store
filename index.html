@@ -361,6 +361,46 @@
       @media (max-width: 900px) { .sections { grid-template-columns: repeat(4, 1fr); } .picker-row { grid-template-columns: 1fr; } }
       @media (max-width: 560px) { .sections { grid-template-columns: repeat(2, 1fr); } .vbar-track { height: 120px; } .wavy2-grid { flex-direction: column; align-items: flex-start; } }
 
+
+      /* ---------- demo overflow fix: nothing in the panel may stick out ---------- */
+      .plugin-shell { width: 100%; max-width: 100%; box-sizing: border-box; overflow: hidden; }
+      .plugin { width: 100%; max-width: 940px; box-sizing: border-box; overflow: hidden; }
+      .plugin * { box-sizing: border-box; max-width: 100%; min-width: 0; }
+      .plugin-head { flex-wrap: wrap; }
+      .picker-row { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+      .picker { min-width: 0; overflow: hidden; }
+      .picker-step { display: flex; flex-wrap: nowrap; gap: 6px; min-width: 0; }
+      .picker-step .step-btn { flex: 0 0 40px; width: 40px; }
+      .picker-step .step-display { flex: 1 1 120px; min-width: 0; overflow: hidden; }
+      .picker-step .step-display .main { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .picker-step .step-display .sub2 { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .picker-step select { flex: 1 1 110px; min-width: 0; width: auto; }
+      .user-presets { flex-wrap: wrap; min-width: 0; }
+      .up-slots { flex-wrap: wrap; min-width: 0; flex: 1 1 auto; }
+      .up-slot { flex: 0 1 auto; }
+      .wavy2 { overflow: hidden; }
+      .wavy2-grid { flex-wrap: wrap; min-width: 0; }
+      .wavy-knobs { flex-wrap: wrap; min-width: 0; }
+      .pitch-screen { min-width: 0; flex: 1 1 140px; }
+      .pitch-step, .ks-step { flex-wrap: nowrap; min-width: 0; }
+      .pitch-val, .ks-val { min-width: 0; flex: 1 1 60px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .keyscale { min-width: 0; flex: 1 1 200px; }
+      .sections { grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); }
+      .sec-box { min-width: 0; overflow: hidden; }
+      .output-strip { flex-wrap: wrap; min-width: 0; }
+      .out-knobs { flex-wrap: wrap; min-width: 0; }
+      .out-meter-wrap { min-width: 0; }
+      .screen { min-width: 0; }
+      @media (max-width: 560px) {
+        .plugin { padding: 14px 12px; }
+        .picker-row { grid-template-columns: 1fr; }
+        .wavy2-grid { flex-direction: column; align-items: stretch; }
+        .pitch-screen { width: 100%; flex: 1 1 auto; }
+        .keyscale { width: 100%; flex: 1 1 auto; }
+        .user-presets { align-items: stretch; }
+        .sections { grid-template-columns: repeat(2, 1fr); }
+        .menu-btn { margin-left: 0; }
+      }
     </style>
   </head>
   <body>
