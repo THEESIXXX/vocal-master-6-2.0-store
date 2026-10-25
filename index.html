@@ -298,6 +298,69 @@
         .screen .db { font-size: 24px; }
         .hero { padding-top: 36px; }
       }
+    
+      /* ---------- 2.0 demo panel (mirrors locked mockup v16) ---------- */
+      .plugin-head .crown-img { width: 48px; height: auto; flex: none; border-radius: 6px; }
+      .head-titles { display: flex; flex-direction: column; }
+      .menu-btn { margin-left: auto; background: transparent; color: #e2ab3a; border: 1.5px solid #e2ab3a; border-radius: 8px; font-family: "JetBrains Mono", monospace; font-weight: 700; letter-spacing: .12em; padding: 10px 18px; cursor: pointer; }
+      .menu-panel { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; border: 1px solid #2e2e34; border-radius: 10px; padding: 10px 12px; margin-bottom: 14px; background: #17171a; }
+      .menu-panel[hidden] { display: none; }
+      .menu-item { background: #1a1a1e; color: #eceade; border: 1px solid #2e2e34; border-radius: 8px; font-family: "JetBrains Mono", monospace; font-size: 12px; font-weight: 700; padding: 9px 12px; cursor: pointer; }
+      .menu-note { color: #9a9aa2; font-size: 12.5px; margin: 0; }
+      .picker-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+      .picker-label { font-family: "JetBrains Mono", monospace; font-size: 11px; font-weight: 700; letter-spacing: .22em; color: #8b8b93; margin-bottom: 6px; }
+      .picker-step { display: flex; gap: 6px; align-items: stretch; }
+      .picker-step .step-display { flex: 1 1 auto; min-width: 0; }
+      .picker-step select { flex: 0 1 130px; min-width: 0; }
+      .user-presets { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 14px; border-top: 1px solid #26262b; border-bottom: 1px solid #26262b; padding: 10px 0; }
+      .up-label { font-family: "JetBrains Mono", monospace; font-size: 11px; font-weight: 700; letter-spacing: .12em; color: #8b8b93; }
+      .up-slots { display: flex; gap: 4px; flex-wrap: wrap; }
+      .up-slot { background: #1a1a1e; color: #cfcec4; border: 1px solid #2e2e34; border-radius: 6px; padding: 7px 9px; font-family: "JetBrains Mono", monospace; font-size: 12px; cursor: pointer; }
+      .up-slot.sel { border-color: #e2ab3a; color: #e2ab3a; }
+      .up-slot.filled { color: #eceade; }
+      .up-btn { background: #1a1a1e; color: #e2ab3a; border: 1px solid #2e2e34; border-radius: 8px; font-family: "JetBrains Mono", monospace; font-size: 12px; font-weight: 700; padding: 8px 12px; cursor: pointer; }
+      .up-status { color: #9a9aa2; font-size: 12.5px; }
+      .wavy2 { border: 1px solid #e2ab3a; background: #171410; border-radius: 12px; padding: 14px 16px; margin-top: 14px; }
+      .wavy2-title { font-family: "JetBrains Mono", monospace; font-size: 13px; font-weight: 700; letter-spacing: .22em; color: #e2ab3a; margin-bottom: 10px; }
+      .wavy2-grid { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+      .wavy-knobs { display: flex; gap: 12px; }
+      .knob { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+      .knob-dial { width: 52px; height: 52px; border-radius: 50%; border: 2px solid #e2ab3a; background: #26262b; color: #e2ab3a; display: flex; align-items: center; justify-content: center; font-family: "JetBrains Mono", monospace; font-size: 10px; font-weight: 700; text-align: center; }
+      .knob-val { font-family: "JetBrains Mono", monospace; font-size: 12px; font-weight: 700; color: #eceade; }
+      .pitch-screen { background: #060607; border: 1px solid #e2ab3a; border-radius: 8px; color: #7ee2a0; font-family: "JetBrains Mono", monospace; font-size: 14px; font-weight: 700; padding: 12px 16px; min-width: 150px; text-align: center; }
+      .pitch-step, .ks-step { display: flex; gap: 6px; align-items: center; }
+      .pitch-val, .ks-val { font-family: "JetBrains Mono", monospace; font-size: 13px; font-weight: 700; color: #eceade; min-width: 70px; text-align: center; }
+      .ks-label { font-family: "JetBrains Mono", monospace; font-size: 11px; font-weight: 700; letter-spacing: .12em; color: #8b8b93; }
+      .keyscale { display: flex; flex-direction: column; gap: 8px; }
+      .wavy-note { color: #b9b8ae; font-size: 13.5px; margin: 10px 0 0; line-height: 1.5; }
+      .sections { display: grid; grid-template-columns: repeat(8, 1fr); gap: 8px; align-items: stretch; margin-top: 16px; }
+      .sec-box { background: #17171a; border: 1px solid #2e2e34; border-radius: 10px; padding: 10px 8px; display: flex; flex-direction: column; height: 100%; box-sizing: border-box; }
+      .sec-head { display: flex; justify-content: space-between; align-items: center; font-family: "JetBrains Mono", monospace; font-size: 10.5px; font-weight: 700; letter-spacing: .08em; color: #e2ab3a; border-bottom: 1px solid #2e2e34; padding-bottom: 6px; margin-bottom: 8px; }
+      .sec-on { color: #7ee2a0; font-size: 10px; }
+      .sec-bars { display: flex; gap: 8px; justify-content: center; flex: 1; align-items: flex-end; }
+      .vbar { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+      .vbar-read { font-family: "JetBrains Mono", monospace; font-size: 11px; font-weight: 700; color: #eceade; min-height: 15px; }
+      .vbar-track { width: 26px; height: 150px; background: #26262b; border-radius: 5px; position: relative; cursor: pointer; touch-action: none; overflow: hidden; }
+      .vbar-fill { position: absolute; bottom: 0; left: 0; right: 0; background: #e2ab3a; border-radius: 5px 5px 0 0; }
+      .vbar-label { font-family: "JetBrains Mono", monospace; font-size: 10px; font-weight: 700; letter-spacing: .06em; color: #b9b8ae; text-align: center; }
+      .eq-knobs { display: flex; gap: 6px; justify-content: center; margin-bottom: 8px; }
+      .eq-knobs .knob-dial { width: 38px; height: 38px; font-size: 9px; }
+      .eq-freq { font-family: "JetBrains Mono", monospace; font-size: 10px; color: #eceade; text-align: center; margin-top: auto; padding-top: 8px; }
+      .sec-note { color: #8b8b93; font-size: 12px; font-family: "JetBrains Mono", monospace; margin: 8px 0 0; }
+      .output-strip { border-top: 1px solid #e2ab3a; margin-top: 16px; padding-top: 14px; display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+      .out-title { font-family: "JetBrains Mono", monospace; font-size: 14px; font-weight: 700; letter-spacing: .22em; color: #e2ab3a; }
+      .out-knobs { display: flex; gap: 12px; }
+      .out-meter-wrap { flex: 1 1 280px; min-width: 0; }
+      .meter-track { height: 14px; background: #26262b; border-radius: 5px; overflow: hidden; margin-top: 10px; }
+      .meter-fill { height: 100%; background: #2fae56; width: 30%; }
+      .meter-fill.yellow { background: #e8c33a; }
+      .meter-fill.red { background: #e0483a; }
+      .meter-label { font-family: "JetBrains Mono", monospace; font-size: 11px; color: #9a9aa2; margin-top: 6px; }
+      .out-actions { display: flex; flex-direction: column; gap: 8px; }
+      .out-actions .lock-btn.on { border-color: #e2ab3a; color: #e2ab3a; }
+      @media (max-width: 900px) { .sections { grid-template-columns: repeat(4, 1fr); } .picker-row { grid-template-columns: 1fr; } }
+      @media (max-width: 560px) { .sections { grid-template-columns: repeat(2, 1fr); } .vbar-track { height: 120px; } .wavy2-grid { flex-direction: column; align-items: flex-start; } }
+
     </style>
   </head>
   <body>
@@ -360,78 +423,115 @@
     </section>
 
 
-    <div class="plugin-shell wrap" id="try">
-      <div class="plugin" id="pluginPanel" aria-label="Interactive preview of the VOCAL MASTER 6 interface">
+        <div class="plugin-shell wrap" id="try">
+      <div class="plugin" id="pluginPanel" aria-label="Interactive preview of the VOCAL MASTER 6 2.0 interface">
         <div class="plugin-head">
-          <svg class="crown" width="30" height="22" viewBox="0 0 30 22" fill="currentColor" aria-hidden="true"><path d="M2 18 0 5l7.5 5L15 2l7.5 8L30 5l-2 13H2zm2 2h22v2H4v-2z"/></svg>
-          <span class="pname">VOCAL MASTER 6 2.0™</span>
-          <span class="pby">by THEESIXXX</span>
-          <span class="pver">v2.0.0</span>
+          <img class="crown-img" src="crown.png" alt="Gold crown" width="48" height="40">
+          <div class="head-titles">
+            <span class="pname">VOCAL MASTER 6 2.0</span>
+            <span class="pby">BY THEESIXXX &middot; PROFESSIONAL VOCAL CHAIN</span>
+          </div>
+          <button class="menu-btn" id="menuBtn" type="button">MENU</button>
+        </div>
+        <div class="menu-panel" id="menuPanel" hidden>
+          <button class="menu-item" id="menuActivate" type="button">ACTIVATE</button>
+          <button class="menu-item" id="menuVerify" type="button">VERIFY PASSCODE</button>
+          <button class="menu-item" id="menuDeactivate" type="button">DEACTIVATE</button>
+          <button class="menu-item" id="menuAudio" type="button">AUDIO SETUP</button>
+          <p class="menu-note" id="menuNote">DEACTIVATE lives in MENU only. This page demo does not activate a real plugin.</p>
         </div>
 
-        <div class="sect-label">MODE</div>
-        <div class="mode-grid" id="modeGrid"></div>
+        <div class="picker-row">
+          <div class="picker">
+            <div class="picker-label">MODE</div>
+            <div class="picker-step">
+              <button class="step-btn" id="modePrev" type="button" aria-label="Previous mode">&#9664;</button>
+              <div class="step-display"><span class="main" id="modeName">SOFT</span><span class="sub2" id="modeMeta">MODE 1 / 15</span></div>
+              <button class="step-btn" id="modeNext" type="button" aria-label="Next mode">&#9654;</button>
+              <select id="modeSelect" aria-label="Choose a mode"></select>
+            </div>
+          </div>
+          <div class="picker">
+            <div class="picker-label">PRESET</div>
+            <div class="picker-step">
+              <button class="step-btn" id="presetPrev" type="button" aria-label="Previous preset">&#9664;</button>
+              <div class="step-display"><span class="main" id="presetName">&mdash;</span><span class="sub2" id="presetMeta">&mdash;</span></div>
+              <button class="step-btn" id="presetNext" type="button" aria-label="Next preset">&#9654;</button>
+              <select id="presetSelect" aria-label="Choose a preset"></select>
+            </div>
+          </div>
+          <div class="picker">
+            <div class="picker-label">MIC</div>
+            <div class="picker-step">
+              <button class="step-btn" id="micPrev" type="button" aria-label="Previous mic">&#9664;</button>
+              <div class="step-display"><span class="main" id="micName">&mdash;</span><span class="sub2" id="micMeta">&mdash;</span></div>
+              <button class="step-btn" id="micNext" type="button" aria-label="Next mic">&#9654;</button>
+              <select id="micSelect" aria-label="Choose a mic"></select>
+            </div>
+          </div>
+        </div>
         <p class="mode-char" id="modeChar"></p>
-
-        <div class="sect-label">PRESET</div>
-        <div class="stepper-row">
-          <button class="step-btn" id="presetPrev" aria-label="Previous preset">&#9664;</button>
-          <div class="step-display">
-            <span class="main" id="presetName">—</span>
-            <span class="sub2" id="presetMeta">—</span>
-          </div>
-          <button class="step-btn" id="presetNext" aria-label="Next preset">&#9654;</button>
-          <select id="presetSelect" aria-label="Choose a preset"></select>
-        </div>
-
-        <div class="sect-label">MIC</div>
-        <div class="stepper-row">
-          <button class="step-btn" id="micPrev" aria-label="Previous mic">&#9664;</button>
-          <div class="step-display">
-            <span class="main" id="micName">—</span>
-            <span class="sub2" id="micMeta">—</span>
-          </div>
-          <button class="step-btn" id="micNext" aria-label="Next mic">&#9654;</button>
-          <select id="micSelect" aria-label="Choose a mic"></select>
-        </div>
         <p class="mic-note" id="micNote"></p>
 
-        <div class="wavy" id="wavyPanel">
-          <div class="wavy-title">WAVYTUNE — PITCH CORRECTION</div>
-          <div class="wavy-grid">
-            <label class="mono" style="font-size:12px;color:#9a9aa2;font-weight:700;">KEY
-              <select id="keySelect" aria-label="Wavytune key"></select>
-            </label>
-            <label class="mono" style="font-size:12px;color:#9a9aa2;font-weight:700;">SCALE
-              <select id="scaleSelect" aria-label="Wavytune scale"></select>
-            </label>
-          </div>
-          <p class="wavy-note">Correction runs first in the chain, before everything else. The <strong style="color:#e2ab3a;">TUNE</strong> bar below becomes the retune speed in this mode — 100 is the hard robotic snap, 0 is slow and natural. Tested accurate to within ±1 cent on test notes.</p>
+        <div class="user-presets">
+          <span class="up-label">USER PRESETS &middot; 10 slots &middot; SAVE / DELETE</span>
+          <div class="up-slots" id="userSlots"></div>
+          <button class="up-btn" id="userSave" type="button">SAVE</button>
+          <button class="up-btn" id="userDelete" type="button">DELETE</button>
+          <span class="up-status" id="userStatus">Slot 1 selected</span>
         </div>
 
-        <div class="sect-label">CONTROLS — CLICK OR DRAG A BAR</div>
-        <div class="bars" id="bars"></div>
-
-        <div class="sect-label">OUTPUT</div>
-        <div class="output-box">
-          <div class="screen">
-            <div class="light" id="sigLight"></div>
-            <div>
-              <div class="db"><span id="dbVal">−9.4</span> <small>dB</small></div>
-              <div class="focusline" id="focusLine">OUTPUT — <b>75</b></div>
-              <div class="limitline" id="limitLine"></div>
+        <div class="wavy2" id="wavyBox">
+          <div class="wavy2-title">WAVYTUNE</div>
+          <div class="wavy2-grid">
+            <div class="wavy-knobs">
+              <div class="knob"><span class="knob-dial">TUNE</span><span class="knob-val" id="tuneVal">80</span></div>
+              <div class="knob"><span class="knob-dial">RETUNE</span><span class="knob-val" id="retuneVal">80</span></div>
+              <div class="knob"><span class="knob-dial">FORMANT</span><span class="knob-val" id="formantVal">50</span></div>
+            </div>
+            <div class="pitch-screen" id="pitchScreen">PITCH ON</div>
+            <div class="pitch-step">
+              <button class="step-btn" id="pitchPrev" type="button" aria-label="Previous pitch">&#9664;</button>
+              <span class="pitch-val" id="pitchVal">PITCH ON</span>
+              <button class="step-btn" id="pitchNext" type="button" aria-label="Next pitch">&#9654;</button>
+            </div>
+            <div class="keyscale">
+              <div class="ks-step"><span class="ks-label">KEY</span><button class="step-btn" id="keyPrev" type="button" aria-label="Previous key">&#9664;</button><span class="ks-val" id="keyVal">C</span><button class="step-btn" id="keyNext" type="button" aria-label="Next key">&#9654;</button></div>
+              <div class="ks-step"><span class="ks-label">SCALE</span><button class="step-btn" id="scalePrev" type="button" aria-label="Previous scale">&#9664;</button><span class="ks-val" id="scaleVal">MAJOR</span><button class="step-btn" id="scaleNext" type="button" aria-label="Next scale">&#9654;</button></div>
             </div>
           </div>
-          <div class="out-controls">
-            <button class="lock-btn on" id="lockBtn">OUTPUT LOCKED — CEILING −0.3 dB</button>
-            <div class="mix-row">
-              <button class="mix-btn" id="dryBtn">DRY</button>
-              <button class="mix-btn on" id="wetBtn">WET</button>
+          <p class="wavy-note">WAVYTUNE processes after SATURATOR in the chain, but its box stays on top here, on the front face. KEY and SCALE appear once each, on the right. The middle screen is PITCH ONLY.</p>
+        </div>
+
+        <div class="sections" id="sections"></div>
+        <p class="sec-note">All box bottoms line up &mdash; every section box is the same height.</p>
+
+        <div class="output-strip">
+          <div class="out-title">OUTPUT</div>
+          <div class="out-knobs">
+            <div class="knob"><span class="knob-dial">OUTPUT</span><span class="knob-val" id="outVal">75</span></div>
+            <div class="knob"><span class="knob-dial">LIMITER</span><span class="knob-val" id="limVal">75</span></div>
+            <div class="knob"><span class="knob-dial">MIX</span><span class="knob-val" id="mixVal">100</span></div>
+          </div>
+          <div class="out-meter-wrap">
+            <div class="screen">
+              <div class="light" id="sigLight"></div>
+              <div>
+                <div class="db"><span id="dbVal">&minus;9.4</span> <small>dB</small></div>
+                <div class="focusline" id="focusLine">OUTPUT &mdash; <b>75</b></div>
+                <div class="limitline" id="limitLine"></div>
+              </div>
             </div>
+            <div class="meter-track"><div class="meter-fill" id="meterFill"></div></div>
+            <div class="meter-label">GREEN below &minus;6 &middot; YELLOW &minus;6 to 0 &middot; RED clipping</div>
+          </div>
+          <div class="out-actions">
+            <button class="lock-btn on" id="lockBtn" type="button">OUTPUT LOCKED &mdash; CEILING &minus;0.3 dB</button>
+            <button class="lock-btn" id="bypassBtn" type="button">BYPASS</button>
           </div>
         </div>
       </div>
-      <p class="demo-note">This is the plugin's real interface, rebuilt for the page — every mode, mic, and preset here loads the same values the shipped plugin uses. No audio runs through the web page; the output meter is a demonstration of the screen and its signal light.</p>
+      <p class="demo-note">This demo mirrors the VOCAL MASTER 6 2.0 panel &mdash; crown header, MENU, MODE / PRESET / MIC pickers with arrows, WAVYTUNE on top, 8 section boxes, and the locked output strip. No audio runs through the web page; the output meter is a demonstration of the screen and its signal light.</p>
     </div>
 
     <section class="block wrap" id="modes">
@@ -590,14 +690,19 @@
       var MODES = [
         { id:"SOFT",     ch:"Soft, airy, close — the vocal sits right on your ear and nothing shouts.", chain:"High-pass 90 Hz · gentle 3:1 compression · mud cut, presence + air EQ · light saturation · subtle chorus doubling · 25% room reverb.", bars:[65,40,30,62,45,70,25,0,75] },
         { id:"HARD",     ch:"Raw, loud, cutting — the vocal attacks and never backs down.", chain:"High-pass 80 Hz · hard 8:1 compression · presence + bite EQ · heavy saturation · short, dark room tail.", bars:[70,80,85,78,65,55,25,0,75] },
-        { id:"WAVYTUNE", ch:"The tuned studio vocal — notes snap to key, from transparent polish to a hard robotic snap.", chain:"Pitch correction first (key, scale, retune), then the full SOFT chain runs unchanged after it.", bars:[65,40,30,62,45,70,25,80,75] },
         { id:"ROCK",     ch:"Forward, punchy, band-ready — cuts through guitars without sounding processed.", chain:"High-pass 100–150 Hz · FET-style 4:1 compression · presence 1–4 kHz · light grit · ducked reverb and delay sends.", bars:[68,55,40,70,40,60,20,0,76] },
         { id:"METAL",    ch:"Dense, relentless, huge — every word lands at full weight.", chain:"High-pass 120–160 Hz · serial FET → opto compression · de-esser · cut-through EQ + 8–10 kHz air · parallel distortion texture · quiet space buses.", bars:[72,88,80,82,75,60,15,0,76] },
         { id:"RADIO",    ch:"Glossy, loud, instantly finished — sounds like it already came off the radio.", chain:"Light tuning · high-pass · de-esser · serial FET + opto compression, ~5 dB each · presence + air · ducked sends · output limiter.", bars:[68,70,35,75,45,70,18,40,78] },
         { id:"PA",       ch:"Clear and feedback-proof in a real room — the vocal wins over the room, not the other way around.", chain:"Feedback control + resonance taming first · FET compression · de-esser · light tape saturation · channel EQ shaped to the room · modest sends.", bars:[65,50,25,65,30,50,15,0,75] },
         { id:"PHONE",    ch:"The voice down a phone line — small, mid-rangey, instantly lo-fi and recognizable.", chain:"Bandpass: everything outside 300 Hz – 5 kHz goes away · mid bump ~1.5–2 kHz · heavy limiting · light lo-fi grit.", bars:[70,90,45,80,60,5,0,0,75] },
         { id:"RAP",      ch:"Punchy, present, polished — every word sharp and in front of the beat.", chain:"Tuning first · high-pass 80–100 Hz · mud cut · presence 3–5 kHz + air · firm 4:1–8:1 compression · de-esser · ducked room + delay sends.", bars:[68,65,45,75,50,72,18,45,77] },
-        { id:"COUNTRY",  ch:"Warm, honest, natural — the vocal sounds like a person in a room, not a product.", chain:"Warm 200–400 Hz body kept · gentle transparent ~3:1 compression · smooth presence · tape warmth · room reverb over plate · slapback on hooks.", bars:[65,38,25,62,35,60,28,15,75] }
+        { id:"COUNTRY",  ch:"Warm, honest, natural — the vocal sounds like a person in a room, not a product.", chain:"Warm 200–400 Hz body kept · gentle transparent ~3:1 compression · smooth presence · tape warmth · room reverb over plate · slapback on hooks.", bars:[65,38,25,62,35,60,28,15,75] },
+        { id:"POP",      ch:"Bright, polished, chart-ready — clean, wide, instantly singable.", chain:"High-pass 90 Hz · gentle compression · presence + air EQ · light saturation · room reverb.", bars:[67,58,38,72,42,68,22,0,76] },
+        { id:"R&B",      ch:"Smooth, soulful, close — warm lows, silky highs, effortless glide.", chain:"Warm body kept · gentle compression · smooth presence · tape warmth · room reverb.", bars:[66,52,32,64,38,62,26,0,75] },
+        { id:"CLASSIC",  ch:"Timeless, natural, open — transparent chain, no hype, just the voice.", chain:"Transparent compression · natural EQ · light room · no heavy processing.", bars:[64,45,28,60,35,58,24,0,74] },
+        { id:"JAZZ",     ch:"Warm, intimate, unhurried — soft compression, natural room, gentle air.", chain:"Soft compression · warm EQ · natural room reverb · gentle air.", bars:[63,42,26,58,32,55,28,0,73] },
+        { id:"FUNK",     ch:"Tight, punchy, rhythmic — firm compression, mid punch, short slap.", chain:"Firm compression · mid punch · light saturation · short slap delay.", bars:[70,72,48,74,48,60,16,0,76] },
+        { id:"REGGAE",   ch:"Laid-back, warm, spacious — gentle compression, roomy reverb, soft delay.", chain:"Gentle compression · warm EQ · roomy reverb · soft delay.", bars:[65,48,30,62,36,58,30,0,75] }
       ];
       var MICS = [
         { n:"Silk Tube",        c:"Bright, airy tube condenser — forward presence, big open highs.", best:"Modern rap and pop vocals that need shine" },
@@ -613,7 +718,6 @@
         { n:"Multi-Pattern Pro",c:"Clear, versatile condenser — bright, detailed, precise.", best:"Detailed vocals, harmonies, bright leads" },
         { n:"Tube Legend",      c:"Big, airy vintage tube — open, silky, larger than life.", best:"Lead vocals that need to sound expensive and wide open" }
       ];
-      var BARNAMES = ["INPUT","COMP","SATURATION","PRESENCE","TEXTURE","AIR","REVERB","TUNE","OUTPUT"];
       /* [name, family, base(0 SOFT / 1 HARD), input, comp, sat, pres, texture, air, reverb, tune, output] */
       var PRESETS = [
       ["Velvet Tears","Emo Tears",0,69,39,28,66,45,69,23,59,76],
@@ -719,68 +823,96 @@
       ];
 
       /* ---------- state ---------- */
-      var state = { mode:"SOFT", preset:0, mic:1, locked:true, dry:false, bars:MODES[0].bars.slice(), focus:8 };
-
+      var state = { mode:"SOFT", preset:0, mic:1, locked:true, bypass:false, bars:MODES[0].bars.slice(), focus:8, key:0, scale:1, pitch:true, userSlot:0, userSlots:[null,null,null,null,null,null,null,null,null,null] };
       var $ = function(id){ return document.getElementById(id); };
-      var modeGrid=$("modeGrid"), barsEl=$("bars");
-
-      /* ---------- build mode buttons ---------- */
-      MODES.forEach(function(m){
-        var b=document.createElement("button");
-        b.className="mode-btn"; b.textContent=m.id; b.dataset.mode=m.id;
-        b.addEventListener("click",function(){ setMode(m.id); });
-        modeGrid.appendChild(b);
-      });
-
-      /* ---------- build bars ---------- */
-      var barRows=[];
-      BARNAMES.forEach(function(name,i){
-        var row=document.createElement("div"); row.className="bar-row";
-        var lab=document.createElement("span"); lab.className="blabel"; lab.textContent=name;
-        var track=document.createElement("div"); track.className="bar-track";
-        var fill=document.createElement("div"); fill.className="bar-fill"; track.appendChild(fill);
-        var val=document.createElement("span"); val.className="bar-val"; val.textContent="0";
-        row.appendChild(lab); row.appendChild(track); row.appendChild(val);
-        barsEl.appendChild(row);
-        barRows.push({row:row,track:track,fill:fill,val:val});
-        var setFromEvent=function(e){
-          var r=track.getBoundingClientRect();
-          var x=(e.touches?e.touches[0].clientX:e.clientX)-r.left;
-          var v=Math.round(Math.max(0,Math.min(1,x/r.width))*100);
-          setBar(i,v,true);
-        };
-        track.addEventListener("pointerdown",function(e){
-          track.setPointerCapture(e.pointerId); setFromEvent(e);
-          var move=function(ev){ setFromEvent(ev); };
-          var up=function(){ track.removeEventListener("pointermove",move); track.removeEventListener("pointerup",up); };
-          track.addEventListener("pointermove",move); track.addEventListener("pointerup",up);
+      var KEYS=["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+      var SCALES=["Chromatic","Major","Minor","Major Pentatonic","Minor Pentatonic"];
+      var SECTION_DEFS=[
+        { name:"NOISE GATE", bars:[{l:"GATE",i:0}] },
+        { name:"DE-ESSER", bars:[{l:"DE-ESS",i:1},{l:"FREQ",i:3}] },
+        { name:"COMPRESSOR", bars:[{l:"INPUT",i:0},{l:"COMP",i:1}] },
+        { name:"EQ", eq:true, bars:[{l:"LOW",i:0,freq:"200 Hz"},{l:"MID",i:1,freq:"1000 Hz"},{l:"HIGH",i:2,freq:"8000 Hz"}] },
+        { name:"SATURATOR", bars:[{l:"SAT",i:2}] },
+        { name:"REVERB", bars:[{l:"REVERB",i:6},{l:"TIME",i:6,time:true}] },
+        { name:"DELAY", bars:[{l:"MIX",i:4},{l:"TIME",i:6,time:true}] },
+        { name:"FX", bars:[{l:"PARAL",i:4},{l:"CHORUS",i:5}] }
+      ];
+      function barText(b){
+        var v=state.bars[b.i];
+        if(b.time) return (v/10).toFixed(1)+" s";
+        return String(v);
+      }
+      var secEls=[];
+      (function buildSections(){
+        var wrap=$("sections");
+        SECTION_DEFS.forEach(function(sec,si){
+          var box=document.createElement("div"); box.className="sec-box";
+          var head=document.createElement("div"); head.className="sec-head";
+          head.innerHTML="<span>"+sec.name+"</span><span class=\"sec-on\">ON</span>"; box.appendChild(head);
+          if(sec.eq){
+            var knobs=document.createElement("div"); knobs.className="eq-knobs";
+            [["PRESENCE",3],["AIR",5],["NOTCH",4]].forEach(function(k){
+              var d=document.createElement("div"); d.className="knob";
+              d.innerHTML="<span class=\"knob-dial\">"+k[0]+"</span><span class=\"knob-val eq-knob-val\" data-eq=\""+k[1]+"\">"+state.bars[k[1]]+"</span>";
+              knobs.appendChild(d);
+            });
+            box.appendChild(knobs);
+          }
+          var barsDiv=document.createElement("div"); barsDiv.className="sec-bars";
+          sec.bars.forEach(function(b){
+            var vb=document.createElement("div"); vb.className="vbar";
+            var read=document.createElement("span"); read.className="vbar-read"; read.textContent=barText(b);
+            var track=document.createElement("div"); track.className="vbar-track";
+            var fill=document.createElement("div"); fill.className="vbar-fill"; track.appendChild(fill);
+            var lab=document.createElement("span"); lab.className="vbar-label"; lab.textContent=b.l;
+            vb.appendChild(read); vb.appendChild(track); vb.appendChild(lab); barsDiv.appendChild(vb);
+            var setFromEvent=function(e){
+              var r=track.getBoundingClientRect();
+              var y=(e.touches?e.touches[0].clientY:e.clientY)-r.top;
+              var v=Math.round(Math.max(0,Math.min(1,1-y/r.height))*100);
+              state.bars[b.i]=v; renderSections(); setFocus(sec.name+" "+b.l, v);
+            };
+            track.addEventListener("pointerdown",function(e){
+              track.setPointerCapture(e.pointerId); setFromEvent(e);
+              var move=function(ev){ setFromEvent(ev); };
+              var up=function(){ track.removeEventListener("pointermove",move); track.removeEventListener("pointerup",up); };
+              track.addEventListener("pointermove",move); track.addEventListener("pointerup",up);
+            });
+            secEls.push({fill:fill,read:read,def:b});
+          });
+          box.appendChild(barsDiv);
+          if(sec.eq){
+            var f=document.createElement("div"); f.className="eq-freq"; f.textContent="LOW 200 Hz \u00B7 MID 1000 Hz \u00B7 HIGH 8000 Hz"; box.appendChild(f);
+          }
+          wrap.appendChild(box);
         });
-      });
-
-      function setBar(i,v,focusIt){
-        state.bars[i]=v;
-        barRows[i].fill.style.width=v+"%";
-        barRows[i].val.textContent=v;
-        if(focusIt){ state.focus=i; refreshFocus(); }
+      })();
+      function renderSections(){
+        secEls.forEach(function(s){
+          var v=state.bars[s.def.i];
+          s.fill.style.height=v+"%"; s.read.textContent=barText(s.def);
+        });
+        document.querySelectorAll(".eq-knob-val").forEach(function(el){
+          el.textContent=state.bars[parseInt(el.dataset.eq,10)];
+        });
+        $("outVal").textContent=state.bars[8]; $("limVal").textContent=state.bars[8]; $("mixVal").textContent=100;
+        $("tuneVal").textContent=state.bars[7]; $("retuneVal").textContent=state.bars[7]; $("formantVal").textContent=50;
       }
-      function refreshFocus(){
-        barRows.forEach(function(r,i){ r.row.classList.toggle("focused", i===state.focus); });
-        var nm = (state.mode==="WAVYTUNE" && state.focus===7) ? "TUNE = RETUNE" : BARNAMES[state.focus];
-        $("focusLine").innerHTML = nm+" — <b>"+state.bars[state.focus]+"</b>";
-      }
-      function loadBars(vals){ vals.forEach(function(v,i){ setBar(i,v,false); }); refreshFocus(); }
-
-      /* ---------- modes ---------- */
+      function setFocus(nm,v){ $("focusLine").innerHTML = nm+" &mdash; <b>"+v+"</b>"; }
+      function loadBars(vals){ vals.forEach(function(v,i){ state.bars[i]=v; }); renderSections(); }
+      var modeSelect=$("modeSelect");
+      MODES.forEach(function(m,i){ var o=document.createElement("option"); o.value=m.id; o.textContent=m.id; modeSelect.appendChild(o); });
       function setMode(id){
-        state.mode=id;
-        var m=MODES.filter(function(x){return x.id===id;})[0];
-        document.querySelectorAll(".mode-btn").forEach(function(b){ b.classList.toggle("active", b.dataset.mode===id); });
+        var m=MODES.filter(function(x){return x.id===id;})[0]; if(!m) return;
+        state.mode=id; modeSelect.value=id;
+        $("modeName").textContent=id;
+        $("modeMeta").textContent="MODE "+(MODES.indexOf(m)+1)+" / "+MODES.length;
         $("modeChar").innerHTML="<strong>"+id+".</strong> "+m.ch;
-        $("wavyPanel").classList.toggle("on", id==="WAVYTUNE");
-        loadBars(m.bars);
+        loadBars(m.bars); setFocus("OUTPUT", state.bars[8]);
       }
-
-      /* ---------- presets ---------- */
+      $("modePrev").addEventListener("click",function(){ var i=MODES.findIndex(function(x){return x.id===state.mode;}); setMode(MODES[(i-1+MODES.length)%MODES.length].id); });
+      $("modeNext").addEventListener("click",function(){ var i=MODES.findIndex(function(x){return x.id===state.mode;}); setMode(MODES[(i+1)%MODES.length].id); });
+      modeSelect.addEventListener("change",function(){ setMode(modeSelect.value); });
       var presetSelect=$("presetSelect");
       var fams=[]; PRESETS.forEach(function(p){ if(fams.indexOf(p[1])<0) fams.push(p[1]); });
       fams.forEach(function(f){
@@ -793,21 +925,15 @@
         var p=PRESETS[state.preset];
         presetSelect.value=state.preset;
         $("presetName").textContent=p[0];
-        $("presetMeta").textContent=p[1].toUpperCase()+" · BASE: "+(p[2]===0?"SOFT":"HARD")+" · "+(state.preset+1)+" / 100";
+        $("presetMeta").textContent=p[1].toUpperCase()+" \u00B7 BASE: "+(p[2]===0?"SOFT":"HARD")+" \u00B7 "+(state.preset+1)+" / 100";
         var base = p[2]===0 ? "SOFT" : "HARD";
-        state.mode=base;
-        document.querySelectorAll(".mode-btn").forEach(function(b){ b.classList.toggle("active", b.dataset.mode===base); });
-        var m=MODES.filter(function(x){return x.id===base;})[0];
-        $("modeChar").innerHTML="<strong>"+base+".</strong> "+m.ch;
-        $("wavyPanel").classList.remove("on");
+        setMode(base);
         loadBars(p.slice(3));
-        if(announce){ state.focus=8; refreshFocus(); }
+        if(announce){ setFocus("OUTPUT", state.bars[8]); }
       }
       $("presetPrev").addEventListener("click",function(){ setPreset(state.preset-1,true); });
       $("presetNext").addEventListener("click",function(){ setPreset(state.preset+1,true); });
       presetSelect.addEventListener("change",function(){ setPreset(parseInt(presetSelect.value,10),true); });
-
-      /* ---------- mics ---------- */
       var micSelect=$("micSelect");
       MICS.forEach(function(m,i){ var o=document.createElement("option"); o.value=i; o.textContent=m.n; micSelect.appendChild(o); });
       function setMic(i){
@@ -821,46 +947,84 @@
       $("micPrev").addEventListener("click",function(){ setMic(state.mic-1); });
       $("micNext").addEventListener("click",function(){ setMic(state.mic+1); });
       micSelect.addEventListener("change",function(){ setMic(parseInt(micSelect.value,10)); });
-
-      /* ---------- wavytune selects ---------- */
-      ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"].forEach(function(k){
-        var o=document.createElement("option"); o.textContent=k; $("keySelect").appendChild(o);
+      function refreshWavy(){
+        $("keyVal").textContent=KEYS[state.key];
+        $("scaleVal").textContent=SCALES[state.scale].toUpperCase();
+        $("pitchVal").textContent=state.pitch?"PITCH ON":"PITCH OFF";
+        $("pitchScreen").textContent=state.pitch?"PITCH ON":"PITCH OFF";
+      }
+      $("keyPrev").addEventListener("click",function(){ state.key=(state.key-1+KEYS.length)%KEYS.length; refreshWavy(); });
+      $("keyNext").addEventListener("click",function(){ state.key=(state.key+1)%KEYS.length; refreshWavy(); });
+      $("scalePrev").addEventListener("click",function(){ state.scale=(state.scale-1+SCALES.length)%SCALES.length; refreshWavy(); });
+      $("scaleNext").addEventListener("click",function(){ state.scale=(state.scale+1)%SCALES.length; refreshWavy(); });
+      $("pitchPrev").addEventListener("click",function(){ state.pitch=!state.pitch; refreshWavy(); });
+      $("pitchNext").addEventListener("click",function(){ state.pitch=!state.pitch; refreshWavy(); });
+      var userSlotsEl=$("userSlots");
+      for(var s=0;s<10;s++){
+        (function(slot){
+          var b=document.createElement("button"); b.className="up-slot"; b.type="button"; b.textContent="Slot "+(slot+1);
+          b.addEventListener("click",function(){
+            state.userSlot=slot; $("userStatus").textContent="Slot "+(slot+1)+" selected";
+            document.querySelectorAll(".up-slot").forEach(function(x,i){ x.classList.toggle("sel", i===slot); });
+            var saved=state.userSlots[slot];
+            if(saved){ setMode(saved.mode); setPreset(saved.preset,false); setMic(saved.mic); }
+          });
+          userSlotsEl.appendChild(b);
+        })(s);
+      }
+      function refreshSlots(){
+        document.querySelectorAll(".up-slot").forEach(function(x,i){
+          x.classList.toggle("sel", i===state.userSlot);
+          x.classList.toggle("filled", !!state.userSlots[i]);
+        });
+      }
+      $("userSave").addEventListener("click",function(){
+        state.userSlots[state.userSlot]={mode:state.mode,preset:state.preset,mic:state.mic};
+        $("userStatus").textContent="Saved to Slot "+(state.userSlot+1); refreshSlots();
       });
-      ["Chromatic","Major","Minor","Major Pentatonic","Minor Pentatonic"].forEach(function(s){
-        var o=document.createElement("option"); o.textContent=s; $("scaleSelect").appendChild(o);
+      $("userDelete").addEventListener("click",function(){
+        state.userSlots[state.userSlot]=null;
+        $("userStatus").textContent="Slot "+(state.userSlot+1)+" deleted"; refreshSlots();
       });
-
-      /* ---------- output screen simulation ---------- */
+      $("menuBtn").addEventListener("click",function(){ var p=$("menuPanel"); p.hidden=!p.hidden; });
+      $("menuActivate").addEventListener("click",function(){ $("menuNote").textContent="Demo only: activation happens in the real plugin, not on this page."; });
+      $("menuVerify").addEventListener("click",function(){ $("menuNote").textContent="Demo only: passcode verification happens in the real plugin."; });
+      $("menuDeactivate").addEventListener("click",function(){ $("menuNote").textContent="DEACTIVATE lives in MENU only. Demo only: nothing is deactivated on this page."; });
+      $("menuAudio").addEventListener("click",function(){ $("menuNote").textContent="Demo only: audio setup happens in the real plugin."; });
       var locked=true, t=0;
       $("lockBtn").addEventListener("click",function(){
         locked=!locked;
         this.classList.toggle("on",locked);
-        this.textContent = locked ? "OUTPUT LOCKED — CEILING −0.3 dB" : "OUTPUT UNLOCKED — LIMITER BYPASSED";
+        this.textContent = locked ? "OUTPUT LOCKED \u2014 CEILING \u22120.3 dB" : "OUTPUT UNLOCKED \u2014 LIMITER BYPASSED";
       });
-      function setDry(d){
-        state.dry=d;
-        $("dryBtn").classList.toggle("on",d);
-        $("wetBtn").classList.toggle("on",!d);
-      }
-      $("dryBtn").addEventListener("click",function(){ setDry(true); });
-      $("wetBtn").addEventListener("click",function(){ setDry(false); });
-
+      $("bypassBtn").addEventListener("click",function(){
+        state.bypass=!state.bypass;
+        this.classList.toggle("on",state.bypass);
+        this.textContent = state.bypass ? "BYPASS ON" : "BYPASS";
+      });
       setInterval(function(){
         t+=0.13;
         var raw;
-        if(state.dry){ raw=-13.5+Math.sin(t*1.7)*1.2; }
+        if(state.bypass){ raw=-13.5+Math.sin(t*1.7)*1.2; }
         else{
           var base=-24 + state.bars[0]*0.10 + state.bars[8]*0.24 + state.bars[1]*0.05;
           raw=base + Math.sin(t*2.3)*2.4 + Math.sin(t*5.1)*1.1;
         }
         var limited=false, disp=raw;
-        if(locked && raw>-0.3){ disp=-0.3; limited=true; }
+        if(locked && !state.bypass && raw>-0.3){ disp=-0.3; limited=true; }
         var dbEl=$("dbVal"), light=$("sigLight");
-        dbEl.textContent=(disp<0?"−":"+")+Math.abs(disp).toFixed(1);
+        dbEl.textContent=(disp<0?"\u2212":"+")+Math.abs(disp).toFixed(1);
         light.className="light"+(disp>=0?" red":(disp>=-6?" yellow":""));
-        $("limitLine").textContent = limited ? "LIMITED — NO CLIP" : (disp>=0 ? "CLIPPING" : "");
+        $("limitLine").textContent = limited ? "LIMITED \u2014 NO CLIP" : (disp>=0 ? "CLIPPING" : "");
+        var mf=$("meterFill"); if(mf){
+          var pct=Math.max(0,Math.min(100,(disp+30)/30*100)); mf.style.width=pct+"%";
+          mf.className="meter-fill"+(disp>=0?" red":(disp>=-6?" yellow":""));
+        }
       },120);
-
+      setMode("SOFT");
+      setPreset(0,false);
+      setMic(1);
+      refreshWavy(); refreshSlots(); renderSections(); setFocus("OUTPUT", state.bars[8]);
       /* ---------- modes section ---------- */
       var specIdx=[1,2,3,5,6,7]; /* COMP SAT PRES AIR REV TUNE positions in bars */
       var specNames=["COMP","SAT","PRES","AIR","REV","TUNE"];
@@ -910,7 +1074,6 @@
       setMode("SOFT");
       setPreset(0,false);
       setMic(1);
-      setBar(8,state.bars[8],true);
     </script>
   <script>
 (function(){
