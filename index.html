@@ -101,6 +101,14 @@
       .test-checkout .btn.test-btn { background: var(--ink); color: var(--bg); }
       .test-checkout .btn.test-btn:hover { background: var(--warn); color: #141005; }
 
+
+      .hero-img { display:block; width:100%; max-width:940px; margin:18px auto 8px; border-radius:18px; border:1px solid #2c2c31; box-shadow:0 24px 60px rgba(0,0,0,.35); }
+      .hero-caption { text-align:center; color:var(--muted); font-size:13px; margin:0 0 18px; }
+      .features-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; margin-top:16px; }
+      .feature { background:#131316; border:1px solid #2c2c31; border-radius:14px; padding:16px 18px; }
+      .feature h3 { color:#e2ab3a; margin:0 0 6px; font-size:16px; }
+      .feature p { color:#f1f0ea; margin:0; line-height:1.55; font-size:14.5px; }
+
       /* ---------- plugin panel (always dark: it is the product) ---------- */
       .plugin-shell { padding: 26px 0 6px; }
       .plugin {
@@ -296,7 +304,8 @@
     <header class="hero wrap" id="top">
       <svg class="hero-crown" width="52" height="38" viewBox="0 0 30 22" fill="currentColor" aria-hidden="true"><path d="M2 18 0 5l7.5 5L15 2l7.5 8L30 5l-2 13H2zm2 2h22v2H4v-2z"/></svg>
       <h1>VOCAL MASTER&nbsp;<span class="gold">6</span> 2.0™</h1>
-      <p class="sub">The vocal chain plugin by <strong>THEESIXXX</strong>. Ten modes, twelve mic characters, one hundred presets — wide gold bars with digital readouts, click-through &lt; &gt; arrows for MODE, PRESET and MIC, and a locked output stage so <strong>no preset can ever clip</strong>. One code, entered once, stamped in the box for easy re-activation.</p>
+      <figure style="margin:0;"><img class="hero-img" src="plugin-hero.png" alt="VOCAL MASTER 6 2.0 plugin interface" width="1280" height="1000"><figcaption class="hero-caption">VOCAL MASTER 6 2.0 — the plugin you are buying, shown as it appears in your DAW.</figcaption></figure>
+      <p class="sub">The vocal chain plugin by <strong>THEESIXXX</strong>. Fifteen modes, twelve mic characters, one hundred presets — wide gold bars with digital readouts, click-through &lt; &gt; arrows for MODE, PRESET and MIC, and a locked output stage so <strong>no preset can ever clip</strong>. One code, entered once, stamped in the box for easy re-activation.</p>
       <div class="statusrow">
         <span class="status"><span class="dot ok"></span>VERSION 2.0.0</span>
         <span class="status"><span class="dot ok"></span>2.0 ONLY — 1.0 IS NOT FOR SALE (TEST PILOT ONLY)</span>
@@ -319,6 +328,23 @@
 <p class="price-note"><strong>Promo scope (Tim, Oct 25, 2026):</strong> the 20% off promo is kept for <strong>all plugins in the future for now</strong> — it is NOT restricted to VOCAL MASTER 6 2.0™ only. <strong>PayPal live (wired Oct 25, 2026):</strong> PayPal checkout sits beside Stripe on this page as a second button, at the same $60 / $48 promo price, with the same no-refund, one-code, one-computer terms. PayPal price is set at $48.00 with the Dec 31, 2026 end date stated in its description — PayPal will NOT auto-revert to $60.00, so that price must be edited back manually on Dec 31, 2026.</p>
       </div>
     </header>
+
+    <section class="block wrap" id="features">
+      <div class="kicker">WHAT YOU GET</div>
+      <h2 class="sec">VOCAL MASTER 6 2.0 features</h2>
+      <p class="sec-lede">This is the 2.0 plugin shown above — not 1.0. Everything below is what ships in VOCAL MASTER 6 2.0.</p>
+      <div class="features-grid">
+        <div class="feature"><h3>15 modes, 100 presets, 12 mics</h3><p>15 modes, 100 factory presets, and 12 mic characters.</p></div>
+        <div class="feature"><h3>WAVYTUNE pitch correction</h3><p>WAVYTUNE pitch correction with key, scale, and pitch controls.</p></div>
+        <div class="feature"><h3>Gold vertical digital bars</h3><p>Gold vertical digital bars with readouts, no knobs except EQ and WAVYTUNE / OUTPUT.</p></div>
+        <div class="feature"><h3>MODE, PRESET, MIC controls</h3><p>MODE, PRESET, and MIC dropdowns plus click-through arrows on each side, wrapping.</p></div>
+        <div class="feature"><h3>Full vocal chain</h3><p>Chain: noise gate, de-esser, compressor, EQ, saturator, WAVYTUNE, reverb, delay, FX parallel / chorus, locked output limiter.</p></div>
+        <div class="feature"><h3>Locked output</h3><p>Output locked at -0.3 dB by default. Meter: green below -6 dB, yellow -6 to 0 dB, red at or above 0 dB.</p></div>
+        <div class="feature"><h3>One-time activation</h3><p>One-time activation code, one computer lock, code stamped in the box for easy re-activation, DEACTIVATE in MENU only.</p></div>
+        <div class="feature"><h3>Windows, Mac, Linux</h3><p>Windows, Mac (universal ARM64 + x86_64, VST3 + AU + Standalone, unsigned), Linux (VST3 + Standalone).</p></div>
+      </div>
+    </section>
+
 
     <div class="plugin-shell wrap" id="try">
       <div class="plugin" id="pluginPanel" aria-label="Interactive preview of the VOCAL MASTER 6 interface">
@@ -396,7 +422,7 @@
 
     <section class="block wrap" id="modes">
       <div class="kicker">THE CHAIN</div>
-      <h2 class="sec">Ten modes, one chain</h2>
+      <h2 class="sec">Fifteen modes, one chain</h2>
       <p class="sec-lede">Every mode is a complete vocal chain — tuning where the style calls for it, high-pass, compression, EQ, saturation, texture, space, and the locked limiter at the end. Pick a mode above and the bars jump to its settings.</p>
       <div class="mode-list" id="modeList"></div>
     </section>
