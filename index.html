@@ -401,6 +401,42 @@
         .sections { grid-template-columns: repeat(2, 1fr); }
         .menu-btn { margin-left: 0; }
       }
+
+      /* ---------- all-widths demo fit: desktop AND phone, not phone-only ---------- */
+      /* Root cause of the computer-screen spill: the 8 section boxes needed
+         8 x 110px + gaps = 936px, but the panel only gives them 896px of
+         content width (940px panel minus 44px padding), so they pushed past
+         the right edge on a computer too. The rules below apply at EVERY
+         width, outside any media query, so a narrow computer window wraps
+         exactly like a phone does. */
+      .plugin-shell { width: 100%; max-width: min(1120px, 100vw); box-sizing: border-box; overflow: hidden; }
+      .plugin { width: 100%; max-width: min(940px, calc(100vw - 40px)); margin-left: auto; margin-right: auto; box-sizing: border-box; overflow: hidden; }
+      .plugin * { box-sizing: border-box; max-width: 100%; min-width: 0; }
+      .plugin-head { flex-wrap: wrap; }
+      .picker-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
+      .picker { min-width: 0; overflow: hidden; }
+      .picker-step { display: flex; flex-wrap: wrap; gap: 6px; min-width: 0; }
+      .picker-step .step-btn { flex: 0 1 40px; min-width: 0; }
+      .picker-step .step-display { flex: 1 1 100px; min-width: 0; overflow: hidden; }
+      .picker-step .step-display .main, .picker-step .step-display .sub2 { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .picker-step select { flex: 1 1 100px; min-width: 0; width: auto; }
+      .user-presets, .up-slots, .wavy2-grid, .wavy-knobs, .output-strip, .out-knobs, .menu-panel { flex-wrap: wrap; min-width: 0; }
+      .wavy2 { overflow: hidden; }
+      .pitch-screen { min-width: 0; flex: 1 1 140px; }
+      .pitch-step, .ks-step { flex-wrap: wrap; min-width: 0; }
+      .pitch-val, .ks-val { min-width: 0; flex: 1 1 60px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .keyscale { min-width: 0; flex: 1 1 200px; }
+      /* 8 sections at 88px min fit 8 x 88 + 7 x 8 gap = 760px inside the
+         896px content width; auto-fit drops columns as the window narrows,
+         at any width, instead of forcing 8 wide columns off the edge. */
+      .sections { display: grid; grid-template-columns: repeat(auto-fit, minmax(88px, 1fr)); gap: 8px; align-items: stretch; }
+      .sec-box { min-width: 0; overflow: hidden; }
+      .sec-bars { flex-wrap: wrap; min-width: 0; }
+      .eq-knobs { flex-wrap: wrap; min-width: 0; }
+      .sec-box .eq-knobs .knob-dial { width: 32px; height: 32px; font-size: 9px; }
+      .vbar-track { max-width: 26px; }
+      .out-meter-wrap, .screen { min-width: 0; }
+      .mode-grid { grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)); }
     </style>
   </head>
   <body>
