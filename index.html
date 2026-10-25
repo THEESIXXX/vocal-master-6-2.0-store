@@ -1,0 +1,894 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:," />
+    <title>Plugin Store — VOCAL MASTER 6 2.0™ by THEESIXXX</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #f3f3f0;
+        --surface: #ffffff;
+        --surface-2: #e9e9e4;
+        --ink: #17171b;
+        --muted: #5d5d66;
+        --line: #dbd9d2;
+        --gold: #96690f;
+        --gold-strong: #7d560a;
+        --chip: #ecebe5;
+        --ok: #1e7d3c;
+        --warn: #9a6b00;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0a0a0c;
+          --surface: #131316;
+          --surface-2: #1b1b1f;
+          --ink: #f1f0ea;
+          --muted: #a5a5ad;
+          --line: #28282e;
+          --gold: #e2ab3a;
+          --gold-strong: #f0bc52;
+          --chip: #1e1e22;
+          --ok: #4cc26e;
+          --warn: #e2ab3a;
+        }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Archivo", system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      .mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+      a { color: var(--gold); }
+      .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+      /* ---------- top nav ---------- */
+      nav.top {
+        position: sticky; top: 0; z-index: 50;
+        background: color-mix(in srgb, var(--bg) 88%, transparent);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--line);
+      }
+      nav.top .wrap { display: flex; align-items: center; gap: 22px; height: 54px; overflow-x: auto; scrollbar-width: none; }
+      nav.top .wrap::-webkit-scrollbar { display: none; }
+      .brand { font-weight: 900; letter-spacing: .04em; font-size: 15px; white-space: nowrap; color: var(--ink); text-decoration: none; }
+      .brand span { color: var(--gold); }
+      nav.top a.navlink { color: var(--muted); text-decoration: none; font-size: 13.5px; font-weight: 600; white-space: nowrap; }
+      nav.top a.navlink:hover { color: var(--ink); }
+
+      /* ---------- hero ---------- */
+      .hero { padding: 52px 0 8px; }
+      .hero h1 {
+        font-size: clamp(44px, 8.5vw, 92px);
+        line-height: .95; font-weight: 900; letter-spacing: -0.015em;
+        margin: 0 0 14px;
+      }
+      .hero h1 .gold { color: var(--gold); }
+      .hero .sub { font-size: clamp(17px, 2.6vw, 22px); line-height: 1.45; color: var(--muted); max-width: 640px; margin: 0 0 22px; font-weight: 500; }
+      .hero .sub strong { color: var(--ink); }
+      .statusrow { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
+      .status {
+        font-family: "JetBrains Mono", monospace; font-size: 12px; font-weight: 600;
+        border: 1px solid var(--line); background: var(--surface);
+        padding: 6px 11px; border-radius: 999px; display: inline-flex; align-items: center; gap: 7px;
+      }
+      .dot { width: 8px; height: 8px; border-radius: 50%; flex: none; }
+      .dot.ok { background: var(--ok); }
+      .dot.wip { background: var(--warn); }
+      .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 10px; }
+      .btn {
+        display: inline-flex; align-items: center; gap: 9px;
+        background: var(--gold); color: #141005; font-weight: 800; font-size: 15px;
+        padding: 13px 22px; border-radius: 10px; text-decoration: none; border: 0; cursor: pointer;
+      }
+      .btn:hover { background: var(--gold-strong); color: #141005; }
+      .btn.ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
+      .btn.ghost:hover { border-color: var(--gold); color: var(--gold); }
+      .price-note { font-size: 14px; color: var(--muted); max-width: 560px; line-height: 1.55; }
+      .price-note strong { color: var(--ink); }
+      .price-tag { font-family: "JetBrains Mono", monospace; font-size: 26px; font-weight: 700; color: var(--gold); letter-spacing: .01em; }
+      .price-tag small { font-size: 13px; color: var(--muted); font-weight: 600; }
+
+      /* ---------- test mode checkout ---------- */
+      .test-checkout {
+        margin-top: 22px; max-width: 640px;
+        background: var(--surface); border: 2px dashed var(--warn); border-radius: 14px;
+        padding: 18px 20px;
+      }
+      .test-badge {
+        display: inline-block; font-family: "JetBrains Mono", monospace; font-size: 12px; font-weight: 700;
+        letter-spacing: .14em; background: var(--warn); color: #141005;
+        padding: 5px 11px; border-radius: 999px; margin-bottom: 10px;
+      }
+      .test-checkout p { margin: 0 0 14px; font-size: 14.5px; line-height: 1.6; color: var(--muted); }
+      .test-checkout p strong { color: var(--ink); }
+      .test-checkout .btn.test-btn { background: var(--ink); color: var(--bg); }
+      .test-checkout .btn.test-btn:hover { background: var(--warn); color: #141005; }
+
+      /* ---------- plugin panel (always dark: it is the product) ---------- */
+      .plugin-shell { padding: 26px 0 6px; }
+      .plugin {
+        background: #101013; color: #eceade; border: 1px solid #2c2c31; border-radius: 18px;
+        padding: 22px 22px 18px; box-shadow: 0 24px 60px rgba(0,0,0,.35);
+        max-width: 940px; margin: 0 auto;
+      }
+      .plugin-head { display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #26262b; padding-bottom: 14px; margin-bottom: 16px; flex-wrap: wrap; }
+      .plugin-head .crown { color: #e2ab3a; flex: none; }
+      .plugin-head .pname { font-weight: 900; font-size: 21px; letter-spacing: .03em; }
+      .plugin-head .pby { color: #9a9aa2; font-size: 13px; font-weight: 600; }
+      .plugin-head .pver { margin-left: auto; font-family: "JetBrains Mono", monospace; font-size: 12px; color: #9a9aa2; border: 1px solid #2c2c31; padding: 4px 9px; border-radius: 6px; }
+      .sect-label { font-family: "JetBrains Mono", monospace; font-size: 11px; font-weight: 700; letter-spacing: .22em; color: #8b8b93; margin: 18px 0 9px; }
+      .sect-label:first-of-type { margin-top: 0; }
+      .mode-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+      .mode-btn {
+        background: #1a1a1e; color: #cfcec4; border: 1px solid #2e2e34; border-radius: 9px;
+        font-family: "Archivo", sans-serif; font-weight: 800; font-size: 13.5px; letter-spacing: .05em;
+        padding: 11px 4px; cursor: pointer;
+      }
+      .mode-btn:hover { border-color: #e2ab3a; }
+      .mode-btn.active { background: #e2ab3a; color: #161204; border-color: #e2ab3a; }
+      .mode-char { color: #b9b8ae; font-size: 14.5px; line-height: 1.5; margin: 12px 2px 0; min-height: 22px; }
+      .mode-char strong { color: #eceade; }
+      .stepper-row { display: flex; align-items: stretch; gap: 8px; flex-wrap: wrap; }
+      .step-btn {
+        background: #1a1a1e; color: #e2ab3a; border: 1px solid #2e2e34; border-radius: 9px;
+        width: 46px; font-size: 17px; cursor: pointer; flex: none;
+      }
+      .step-btn:hover { border-color: #e2ab3a; }
+      .step-display {
+        flex: 1 1 220px; background: #0a0a0c; border: 1px solid #2e2e34; border-radius: 9px;
+        display: flex; flex-direction: column; justify-content: center; padding: 8px 14px; min-height: 52px;
+      }
+      .step-display .main { font-weight: 800; font-size: 17px; letter-spacing: .01em; }
+      .step-display .sub2 { font-family: "JetBrains Mono", monospace; font-size: 11.5px; color: #9a9aa2; margin-top: 2px; }
+      .plugin select {
+        background: #1a1a1e; color: #eceade; border: 1px solid #2e2e34; border-radius: 9px;
+        font-family: "Archivo", sans-serif; font-weight: 600; font-size: 13.5px; padding: 0 10px; min-height: 52px; max-width: 100%;
+      }
+      .mic-note { color: #b9b8ae; font-size: 14px; line-height: 1.5; margin: 10px 2px 0; }
+      .mic-note em { color: #e2ab3a; font-style: normal; font-weight: 700; }
+      .wavy {
+        border: 1px solid #3a3220; background: #171410; border-radius: 12px; padding: 14px 16px; margin-top: 14px;
+        display: none;
+      }
+      .wavy.on { display: block; }
+      .wavy .wavy-title { font-family: "JetBrains Mono", monospace; font-size: 11px; font-weight: 700; letter-spacing: .22em; color: #e2ab3a; margin-bottom: 10px; }
+      .wavy .wavy-grid { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+      .wavy select { min-height: 44px; }
+      .wavy .wavy-note { color: #b9b8ae; font-size: 13.5px; margin: 10px 0 0; line-height: 1.5; }
+      .bars { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 26px; }
+      .bar-row { display: grid; grid-template-columns: 92px 1fr 40px; align-items: center; gap: 10px; }
+      .bar-row .blabel { font-family: "JetBrains Mono", monospace; font-size: 11.5px; font-weight: 700; letter-spacing: .08em; color: #b9b8ae; }
+      .bar-track { height: 16px; background: #26262b; border-radius: 5px; position: relative; cursor: pointer; touch-action: none; }
+      .bar-fill { position: absolute; inset: 0 auto 0 0; background: #e2ab3a; border-radius: 5px; pointer-events: none; }
+      .bar-row.focused .blabel { color: #e2ab3a; }
+      .bar-row.focused .bar-track { outline: 1.5px solid #e2ab3a; outline-offset: 2px; }
+      .bar-val { font-family: "JetBrains Mono", monospace; font-size: 13px; font-weight: 700; text-align: right; color: #eceade; }
+      .output-box { display: flex; gap: 14px; flex-wrap: wrap; align-items: stretch; }
+      .screen {
+        flex: 1 1 300px; background: #060607; border: 1px solid #2e2e34; border-radius: 12px;
+        padding: 14px 16px; display: flex; align-items: center; gap: 16px;
+      }
+      .light { width: 30px; height: 30px; border-radius: 50%; flex: none; background: #2fae56; box-shadow: 0 0 14px rgba(47,174,86,.55); }
+      .light.yellow { background: #e8c33a; box-shadow: 0 0 14px rgba(232,195,58,.55); }
+      .light.red { background: #e0483a; box-shadow: 0 0 16px rgba(224,72,58,.7); }
+      .screen .db { font-family: "JetBrains Mono", monospace; font-size: 30px; font-weight: 700; line-height: 1; }
+      .screen .db small { font-size: 13px; color: #9a9aa2; font-weight: 600; }
+      .screen .focusline { font-family: "JetBrains Mono", monospace; font-size: 12px; color: #9a9aa2; margin-top: 6px; }
+      .screen .focusline b { color: #e2ab3a; font-weight: 700; }
+      .screen .limitline { font-family: "JetBrains Mono", monospace; font-size: 12px; font-weight: 700; color: #e8c33a; margin-top: 4px; min-height: 15px; }
+      .out-controls { display: flex; flex-direction: column; gap: 8px; justify-content: center; }
+      .lock-btn, .mix-btn {
+        background: #1a1a1e; color: #eceade; border: 1px solid #2e2e34; border-radius: 9px;
+        font-family: "JetBrains Mono", monospace; font-size: 12px; font-weight: 700; letter-spacing: .06em;
+        padding: 11px 14px; cursor: pointer; text-align: left;
+      }
+      .lock-btn.on { border-color: #e2ab3a; color: #e2ab3a; }
+      .mix-row { display: flex; gap: 8px; }
+      .mix-btn { flex: 1; text-align: center; }
+      .mix-btn.on { background: #e2ab3a; color: #161204; border-color: #e2ab3a; }
+      .demo-note { max-width: 940px; margin: 12px auto 0; color: var(--muted); font-size: 13.5px; line-height: 1.55; text-align: center; }
+
+      /* ---------- sections ---------- */
+      section.block { padding: 56px 0 8px; }
+      .kicker { font-family: "JetBrains Mono", monospace; font-size: 12px; font-weight: 700; letter-spacing: .24em; color: var(--gold); margin-bottom: 10px; }
+      h2.sec { font-size: clamp(28px, 4.6vw, 40px); font-weight: 900; letter-spacing: -0.01em; margin: 0 0 12px; }
+      .sec-lede { color: var(--muted); font-size: 16.5px; line-height: 1.6; max-width: 680px; margin: 0 0 28px; }
+      .mode-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 44px; }
+      .mode-item { border-top: 1px solid var(--line); padding: 18px 0; }
+      .mode-item h3 { margin: 0 0 5px; font-size: 19px; font-weight: 800; letter-spacing: .02em; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+      .mode-item h3 .spec { font-family: "JetBrains Mono", monospace; font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: .02em; }
+      .mode-item p { margin: 0 0 6px; font-size: 15px; line-height: 1.55; }
+      .mode-item .chain { color: var(--muted); font-size: 13.5px; line-height: 1.55; margin: 0; }
+      .mic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+      .mic-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+      .mic-card h3 { margin: 0 0 5px; font-size: 16.5px; font-weight: 800; }
+      .mic-card p { margin: 0 0 7px; font-size: 14px; line-height: 1.55; color: var(--muted); }
+      .mic-card .best { font-size: 13px; color: var(--ink); }
+      .mic-card .best b { color: var(--gold); font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: .12em; display: block; margin-bottom: 2px; }
+      .fam-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+      .fam-chip {
+        font-family: "JetBrains Mono", monospace; font-size: 12.5px; font-weight: 600;
+        background: var(--chip); color: var(--ink); border: 1px solid var(--line);
+        padding: 8px 13px; border-radius: 999px; cursor: pointer;
+      }
+      .fam-chip.on { background: var(--gold); border-color: var(--gold); color: #141005; }
+      .preset-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+      .preset-chip {
+        background: var(--surface); border: 1px solid var(--line); color: var(--ink);
+        font-size: 14px; font-weight: 600; padding: 9px 14px; border-radius: 9px; cursor: pointer;
+      }
+      .preset-chip:hover { border-color: var(--gold); color: var(--gold); }
+      .preset-chip small { display: block; font-family: "JetBrains Mono", monospace; font-size: 10.5px; color: var(--muted); font-weight: 600; margin-top: 1px; }
+      .preset-chip:hover small { color: var(--gold); }
+
+      .compat-table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+      .compat-table th, .compat-table td { text-align: left; padding: 14px 18px; font-size: 15px; border-top: 1px solid var(--line); vertical-align: top; }
+      .compat-table tr:first-child th { border-top: 0; }
+      .compat-table th { font-family: "JetBrains Mono", monospace; font-size: 11.5px; letter-spacing: .14em; color: var(--muted); background: var(--surface-2); }
+      .compat-table td.fmt { font-weight: 800; white-space: nowrap; }
+      .tag { font-family: "JetBrains Mono", monospace; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+      .tag.ok { background: color-mix(in srgb, var(--ok) 16%, transparent); color: var(--ok); }
+      .tag.wip { background: color-mix(in srgb, var(--warn) 18%, transparent); color: var(--warn); }
+      .daw-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+      .daw { font-weight: 700; font-size: 14px; background: var(--surface); border: 1px solid var(--line); padding: 8px 14px; border-radius: 9px; }
+      .fineprint { color: var(--muted); font-size: 14px; line-height: 1.6; margin-top: 16px; max-width: 720px; }
+
+      .dl-guide { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; margin-bottom: 18px; }
+      .dl-guide h3 { margin: 0 0 6px; font-size: 19px; font-weight: 800; }
+      .dl-guide p { margin: 0 0 8px; font-size: 15px; line-height: 1.6; color: var(--muted); }
+      .dl-guide ul { margin: 0 0 8px; padding-left: 20px; font-size: 15px; line-height: 1.75; }
+      .dl-guide ul strong { color: var(--ink); }
+      .dl-guide .guide-note { margin-bottom: 0; font-size: 14px; }
+      .dl-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+      .dl-card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 8px; }
+      .dl-card h3 { margin: 0; font-size: 19px; font-weight: 800; }
+      .dl-card .useif { font-size: 15px; font-weight: 700; color: var(--ink); }
+      .dl-card .fmtline { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--muted); }
+      .dl-card p { margin: 0; font-size: 14.5px; line-height: 1.6; color: var(--muted); flex: 1; }
+      .dl-card .btn { justify-content: center; }
+      .dl-card .disabled-note { font-family: "JetBrains Mono", monospace; font-size: 12px; font-weight: 700; color: var(--warn); border: 1px dashed var(--line); border-radius: 9px; padding: 12px; text-align: center; }
+
+      .road-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+      .road-card { border: 1px solid var(--line); border-radius: 14px; padding: 24px; background: var(--surface); }
+      .road-card h3 { margin: 0 0 6px; font-size: 22px; font-weight: 900; }
+      .road-card p { margin: 0 0 10px; font-size: 15px; line-height: 1.6; color: var(--muted); }
+      .road-card .controls-line { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--muted); line-height: 1.7; }
+      .road-card .road-price { font-family: "JetBrains Mono", monospace; font-size: 20px; font-weight: 700; color: var(--gold); margin: 0 0 10px; }
+      .road-card .road-price small { font-size: 12px; color: var(--muted); font-weight: 600; }
+
+      footer { margin-top: 64px; border-top: 1px solid var(--line); padding: 28px 0 40px; }
+      footer .wrap { display: flex; flex-wrap: wrap; gap: 14px 30px; align-items: center; }
+      footer .fbrand { font-weight: 900; }
+      footer a { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 14px; }
+      footer a:hover { color: var(--gold); }
+      footer .copy { margin-left: auto; color: var(--muted); font-size: 13px; }
+
+      @media (max-width: 900px) {
+        .mic-grid { grid-template-columns: repeat(2, 1fr); }
+        .dl-grid { grid-template-columns: 1fr; }
+        .mode-list { grid-template-columns: 1fr; }
+        .road-grid { grid-template-columns: 1fr; }
+        .bars { grid-template-columns: 1fr; }
+      }
+      @media (max-width: 560px) {
+        nav.top .wrap { flex-wrap: wrap; height: auto; padding-top: 10px; padding-bottom: 10px; row-gap: 4px; column-gap: 16px; }
+        .mode-grid { grid-template-columns: repeat(2, 1fr); }
+        .mic-grid { grid-template-columns: 1fr; }
+        .plugin { padding: 16px 14px 14px; }
+        .bar-row { grid-template-columns: 82px 1fr 36px; }
+        .screen .db { font-size: 24px; }
+        .hero { padding-top: 36px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div style="background:#7d560a;color:#fff;text-align:center;font-weight:800;padding:10px 16px;font-size:14px;">UNPUBLISHED DRAFT — NOT LIVE — TEST ONLY — NO LIVE CHECKOUT, NO LIVE KEYS, NO CHARGES</div>
+    <nav class="top">
+      <div class="wrap">
+        <a class="brand" href="#top">THEESIXXX <span>PLUGINS</span></a>
+        <a class="navlink" href="#try">Try it</a>
+        <a class="navlink" href="#modes">Modes</a>
+        <a class="navlink" href="#mics">Mics</a>
+        <a class="navlink" href="#presets">Presets</a>
+        <a class="navlink" href="#compat">Compatibility</a>
+        <a class="navlink" href="#download">Download</a>
+        <a class="navlink" href="#help">Help</a>
+        <a class="navlink" href="#terms">Terms</a>
+      </div>
+    </nav>
+
+    <header class="hero wrap" id="top">
+      <h1>VOCAL MASTER&nbsp;<span class="gold">6</span> 2.0™</h1>
+      <p class="sub">The vocal chain plugin by <strong>THEESIXXX</strong>. Ten modes, twelve mic characters, one hundred presets — wide gold bars with digital readouts, click-through &lt; &gt; arrows for MODE, PRESET and MIC, and a locked output stage so <strong>no preset can ever clip</strong>. One code, entered once, stamped in the box for easy re-activation.</p>
+      <div class="statusrow">
+        <span class="status"><span class="dot ok"></span>VERSION 2.0.0</span>
+        <span class="status"><span class="dot ok"></span>2.0 ONLY — 1.0 IS NOT FOR SALE (TEST PILOT ONLY)</span>
+        <span class="status"><span class="dot ok"></span>WINDOWS + LINUX + MAC — ALL THREE SALE PACKAGES PACKAGED</span>
+        <span class="status"><span class="dot ok"></span>MAC BUILD — UNIVERSAL (ARM64 + X86_64), VST3 + AU + STANDALONE</span>
+        <span class="status"><span class="dot ok"></span>PRICE $60.00 · PAYPAL $48.00 PROMO UNTIL DEC 31, 2026</span>
+      </div>
+      <div class="hero-cta">
+        <a class="btn" href="#download">See downloads — 2.0 only</a>
+        <a class="btn ghost" href="#try">Try the interface</a>
+        <span class="price-tag"><span id="promoPrice">$60.00</span> <small>ONE PRICE — EVERY FORMAT · PAYPAL $48.00 PROMO UNTIL DEC 31, 2026</small></span>
+      </div>
+      <p class="price-note"><strong>VOCAL MASTER 6 2.0™ costs $60.00 USD.</strong> PayPal checkout is <strong>$48.00 promo until December 31, 2026</strong> — after Dec 31, 2026 PayPal goes back to $60.00. Stripe checkout is $60.00, with a promo code box at checkout if you have a code. That one purchase covers Windows, Mac, and Linux — you don't pay three times. <strong>All sales final — no refunds.</strong> After you pay, your one-time code is emailed to the email you pay with. That code is yours alone. That code locks to one computer only, and after first activation it is stamped in the box for easy re-activation. <strong>1.0 is not for sale</strong> — it was only the test pilot.</p>
+      <div class="test-checkout" id="test-checkout" data-checkout="test-only" data-live-keys="none" data-stripe="live-payment-link-draft-only" data-paypal="live-link-draft-only">
+        <span class="test-badge">LIVE CHECKOUT</span>
+        <p><strong>Live checkout for VOCAL MASTER 6 2.0™.</strong> Stripe is $60.00 via the live payment link below. PayPal is <strong>$48.00 promo until Dec 31, 2026</strong> via the live PayPal link below — same PayPal Business account used for merch, on this separate plugin-store site. After payment, your one-time code is emailed to the email you pay with. PayPal will NOT automatically revert the price to $60.00 on Dec 31, 2026 — that price must be edited back manually (reminder set for Dec 31, 2026).</p>
+        <a class="btn" href="https://buy.stripe.com/aFa8wRejngjT6wF4fIgbm00">Buy with Stripe — $60.00</a>
+        <a class="btn" href="https://www.paypal.com/ncp/payment/ZE95WHUJR84Q8">Buy with PayPal — $48.00 promo until Dec 31, 2026 (then $60.00, manual price edit required)</a>
+        <p style="margin-top:12px;"><strong>All sales final — no refunds.</strong> One purchase covers Windows, Mac, and Linux. One-time code, one computer lock.</p>
+<p class="price-note"><strong>Promo scope (Tim, Oct 25, 2026):</strong> the 20% off promo is kept for <strong>all plugins in the future for now</strong> — it is NOT restricted to VOCAL MASTER 6 2.0™ only. <strong>PayPal live (wired Oct 25, 2026):</strong> PayPal checkout sits beside Stripe on this page as a second button, at the same $60 / $48 promo price, with the same no-refund, one-code, one-computer terms. PayPal price is set at $48.00 with the Dec 31, 2026 end date stated in its description — PayPal will NOT auto-revert to $60.00, so that price must be edited back manually on Dec 31, 2026.</p>
+      </div>
+    </header>
+
+    <div class="plugin-shell wrap" id="try">
+      <div class="plugin" id="pluginPanel" aria-label="Interactive preview of the VOCAL MASTER 6 interface">
+        <div class="plugin-head">
+          <svg class="crown" width="30" height="22" viewBox="0 0 30 22" fill="currentColor" aria-hidden="true"><path d="M2 18 0 5l7.5 5L15 2l7.5 8L30 5l-2 13H2zm2 2h22v2H4v-2z"/></svg>
+          <span class="pname">VOCAL MASTER 6 2.0™</span>
+          <span class="pby">by THEESIXXX</span>
+          <span class="pver">v2.0.0</span>
+        </div>
+
+        <div class="sect-label">MODE</div>
+        <div class="mode-grid" id="modeGrid"></div>
+        <p class="mode-char" id="modeChar"></p>
+
+        <div class="sect-label">PRESET</div>
+        <div class="stepper-row">
+          <button class="step-btn" id="presetPrev" aria-label="Previous preset">&#9664;</button>
+          <div class="step-display">
+            <span class="main" id="presetName">—</span>
+            <span class="sub2" id="presetMeta">—</span>
+          </div>
+          <button class="step-btn" id="presetNext" aria-label="Next preset">&#9654;</button>
+          <select id="presetSelect" aria-label="Choose a preset"></select>
+        </div>
+
+        <div class="sect-label">MIC</div>
+        <div class="stepper-row">
+          <button class="step-btn" id="micPrev" aria-label="Previous mic">&#9664;</button>
+          <div class="step-display">
+            <span class="main" id="micName">—</span>
+            <span class="sub2" id="micMeta">—</span>
+          </div>
+          <button class="step-btn" id="micNext" aria-label="Next mic">&#9654;</button>
+          <select id="micSelect" aria-label="Choose a mic"></select>
+        </div>
+        <p class="mic-note" id="micNote"></p>
+
+        <div class="wavy" id="wavyPanel">
+          <div class="wavy-title">WAVYTUNE — PITCH CORRECTION</div>
+          <div class="wavy-grid">
+            <label class="mono" style="font-size:12px;color:#9a9aa2;font-weight:700;">KEY
+              <select id="keySelect" aria-label="Wavytune key"></select>
+            </label>
+            <label class="mono" style="font-size:12px;color:#9a9aa2;font-weight:700;">SCALE
+              <select id="scaleSelect" aria-label="Wavytune scale"></select>
+            </label>
+          </div>
+          <p class="wavy-note">Correction runs first in the chain, before everything else. The <strong style="color:#e2ab3a;">TUNE</strong> bar below becomes the retune speed in this mode — 100 is the hard robotic snap, 0 is slow and natural. Tested accurate to within ±1 cent on test notes.</p>
+        </div>
+
+        <div class="sect-label">CONTROLS — CLICK OR DRAG A BAR</div>
+        <div class="bars" id="bars"></div>
+
+        <div class="sect-label">OUTPUT</div>
+        <div class="output-box">
+          <div class="screen">
+            <div class="light" id="sigLight"></div>
+            <div>
+              <div class="db"><span id="dbVal">−9.4</span> <small>dB</small></div>
+              <div class="focusline" id="focusLine">OUTPUT — <b>75</b></div>
+              <div class="limitline" id="limitLine"></div>
+            </div>
+          </div>
+          <div class="out-controls">
+            <button class="lock-btn on" id="lockBtn">OUTPUT LOCKED — CEILING −0.3 dB</button>
+            <div class="mix-row">
+              <button class="mix-btn" id="dryBtn">DRY</button>
+              <button class="mix-btn on" id="wetBtn">WET</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="demo-note">This is the plugin's real interface, rebuilt for the page — every mode, mic, and preset here loads the same values the shipped plugin uses. No audio runs through the web page; the output meter is a demonstration of the screen and its signal light.</p>
+    </div>
+
+    <section class="block wrap" id="modes">
+      <div class="kicker">THE CHAIN</div>
+      <h2 class="sec">Ten modes, one chain</h2>
+      <p class="sec-lede">Every mode is a complete vocal chain — tuning where the style calls for it, high-pass, compression, EQ, saturation, texture, space, and the locked limiter at the end. Pick a mode above and the bars jump to its settings.</p>
+      <div class="mode-list" id="modeList"></div>
+    </section>
+
+    <section class="block wrap" id="mics">
+      <div class="kicker">INPUT STAGE</div>
+      <h2 class="sec">Twelve mic characters</h2>
+      <p class="sec-lede">Before the chain even starts, the mic stage reshapes your input with the EQ curve and saturation feel of a classic microphone character. Every mic works with every mode and every preset — step through them with the arrows in the demo and hear the descriptions change.</p>
+      <div class="mic-grid" id="micGrid"></div>
+    </section>
+
+    <section class="block wrap" id="presets">
+      <div class="kicker">THE BANK</div>
+      <h2 class="sec">100 presets, 10 families</h2>
+      <p class="sec-lede">Ten presets per family, each one a full set of bar values on a SOFT or HARD base. Tap any preset to load it into the demo up top.</p>
+      <div class="fam-chips" id="famChips"></div>
+      <div class="preset-grid" id="presetGrid"></div>
+    </section>
+
+    <section class="block wrap" id="compat">
+      <div class="kicker">FORMATS</div>
+      <h2 class="sec">Runs in your DAW</h2>
+      <p class="sec-lede">VST3 covers nearly everything on Windows and Mac; AU is the native Mac plugin format. VOCAL MASTER 6 2.0™ costs $60.00 — promo $48.00 until Dec 31, 2026 — that one purchase gets you Windows, Mac, and Linux. You don't pay three times.</p>
+      <table class="compat-table">
+        <tr><th>PLATFORM</th><th>FORMATS</th><th>STATUS</th></tr>
+        <tr><td class="fmt">Windows</td><td>VST3 + Standalone</td><td><span class="tag ok">DOWNLOAD READY</span></td></tr>
+        <tr><td class="fmt">Mac</td><td>VST3 + AU + Standalone — universal binary (newer + older Macs)</td><td><span class="tag ok">DOWNLOAD READY</span></td></tr>
+        <tr><td class="fmt">Linux</td><td>VST3 + Standalone</td><td><span class="tag ok">DOWNLOAD READY</span></td></tr>
+      </table>
+      <p class="fineprint" style="margin-top:18px;">Works in any music app (DAW) that loads VST3 or AU plugins — if your app takes standard plugins, it takes this one.</p>
+      <p class="fineprint">Straight talk on formats: VOCAL MASTER 6™ ships as VST3 and AU, the formats most hosts load. Any other plugin format is a later phase. Mac builds ship unsigned (the free way), so a Mac buyer does a couple of extra clicks the first time they load it.</p>
+    </section>
+
+    <section class="block wrap" id="download">
+      <div class="kicker">GET IT</div>
+      <h2 class="sec">Downloads</h2>
+      <p class="sec-lede">Every package below is the finished v2.0.0 product — the same build that passed independent plugin validation with zero failures, built with the live license server so activation works out of the box. VOCAL MASTER 6™ costs $60.00 USD (promo $48.00 until Dec 31, 2026). That one purchase gets you Windows, Mac, and Linux — you don't pay three times. When you buy, you get your own code, and that code turns the plugin on, on your computer only.</p>
+      <div class="dl-guide">
+        <h3>Pick the download for your computer</h3>
+        <p>It's the same plugin three ways — the only difference is which computer each download runs on. Grab the one that matches your machine:</p>
+        <ul>
+          <li><strong>Windows PC</strong> → the <strong>Windows</strong> download</li>
+          <li><strong>Apple Mac</strong> → the <strong>Mac</strong> download</li>
+          <li><strong>Linux</strong> → the <strong>Linux</strong> download</li>
+        </ul>
+        <p class="guide-note">Not sure what you're on? If your computer has a Start menu, it's Windows. If it has an Apple logo in the top-left corner of the screen, it's a Mac.</p>
+      </div>
+      <div class="dl-grid">
+        <div class="dl-card">
+          <h3>Windows</h3>
+          <div class="useif">Use this if you are on Windows.</div>
+          <div class="fmtline">CONTAINS: VST3 + STANDALONE · SIZE TO BE CONFIRMED ON FINAL PACKAGING</div>
+          <p>Unzip, copy the <span class="mono">.vst3</span> into your plugin folder (usually <span class="mono">C:\Program Files\Common Files\VST3</span>), rescan in your DAW — or just run the standalone app. Install notes are inside the zip.</p>
+          <div class="disabled-note">SALE PACKAGE PACKAGED — Windows sale zip ready in dist-sale/ (same Tim-confirmed stamped binaries, sale README, NOT the test zip). Files are NOT delivered by this draft yet — delivery wiring pending.</div>
+        </div>
+        <div class="dl-card">
+          <h3>Mac</h3>
+          <div class="useif">Use this if you are on a Mac.</div>
+          <div class="fmtline">CONTAINS: VST3 + AU + STANDALONE · UNIVERSAL · SIZE TO BE CONFIRMED ON FINAL PACKAGING</div>
+          <p>Universal binary for newer and older Macs, including the AU format Mac music apps load. Ships unsigned — the free way — so the first load takes a couple of extra security steps, written out in the zip.</p>
+          <div class="disabled-note">SALE PACKAGE PACKAGED — Mac sale zip ready in dist-sale/ (universal arm64+x86_64, VST3 + AU + Standalone, strings-verified newest names, unsigned free way). Files are NOT delivered by this draft yet — delivery wiring pending.</div>
+        </div>
+        <div class="dl-card">
+          <h3>Linux</h3>
+          <div class="useif">Use this if you are on Linux.</div>
+          <div class="fmtline">CONTAINS: VST3 + STANDALONE · SIZE TO BE CONFIRMED ON FINAL PACKAGING</div>
+          <p>Unzip, copy the <span class="mono">.vst3</span> into your plugin folder (usually <span class="mono">~/.vst3</span>), rescan in your DAW — or just run the standalone app. Install notes are inside the zip.</p>
+          <div class="disabled-note">SALE PACKAGE PACKAGED — Linux sale zip ready in dist-sale/ (stamped build, strings-verified, render test pass). Files are NOT delivered by this draft yet — delivery wiring pending.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block wrap" id="help">
+      <div class="kicker">SETUP HELP</div>
+      <h2 class="sec">First time opening it? Read this first</h2>
+      <p class="sec-lede">Two things catch people out the first time — Windows blocking the app, and a loud squeal when the standalone app opens. Both happened to us setting it up. Here's exactly what to do.</p>
+      <div class="dl-guide">
+        <h3>Windows says it won't let the app open</h3>
+        <p>The builds are unsigned (the free way), so Windows Defender may show a blue screen saying it protected your PC, or refuse to open the app. That's Windows not knowing the publisher yet — it is not a virus.</p>
+        <ul>
+          <li><strong>Extract the zip first</strong> — don't run the app from inside the zip preview. If the zip's Properties show an <strong>Unblock</strong> box at the bottom, check it, hit Apply, then extract again.</li>
+          <li>On the blue "Windows protected your PC" screen, click <strong>More info</strong>, then <strong>Run anyway</strong>.</li>
+          <li>If Defender quarantined the file instead: open <strong>Windows Security → Virus &amp; threat protection → Protection history</strong>, find VOCAL MASTER 6, and choose <strong>Allow</strong> or <strong>Restore</strong> for that file only. Don't turn Defender off — just allow this one app.</li>
+          <li>Still stuck? Skip the standalone and load the <strong>VST3 in your DAW</strong> — DAWs load unsigned plugins without the warning.</li>
+        </ul>
+      </div>
+      <div class="dl-guide" style="margin-top:14px;">
+        <h3>Loud squeal or feedback when the standalone app opens</h3>
+        <p>If the standalone app opens with your mic live and your speakers up, it can squeal — a feedback loop. <strong>Before you change anything, turn your audio interface's volume all the way down (muted).</strong> A feedback loop gets loud fast, and muted is what keeps it from blasting you while you fix it. Then, in the app:</p>
+        <ul>
+          <li>Click <strong>Options</strong> in the top menu.</li>
+          <li>Click <strong>Audio/MIDI Settings</strong>.</li>
+          <li>Click the <strong>feedback loop</strong> setting to break the loop.</li>
+          <li>Keep your <strong>interface volume muted</strong> while you finish setting up — don't bring it back up yet.</li>
+          <li><strong>Unclick the mute audio input</strong> — if the input stays muted, no sound gets into the plugin at all.</li>
+          <li>Make sure your interface is picked as the input and output, then bring the interface volume back up <strong>slowly</strong>.</li>
+        </ul>
+        <p class="guide-note">This is a standalone-app thing — inside a DAW, the DAW handles the routing, so the loop doesn't come up.</p>
+      </div>
+    </section>
+
+    <section class="block wrap" id="terms">
+      <div class="kicker">THE DEAL, IN PLAIN WORDS</div>
+      <h2 class="sec">Terms of purchase</h2>
+      <p class="sec-lede">Short and readable, because that's how it should be. These terms apply to VOCAL MASTER 6 2.0™ sold on this page. Draft only — legal review is still required before commercial launch.</p>
+      <div class="mode-list">
+        <div class="mode-item">
+          <h3>Licence</h3>
+          <p>Buying a plugin gives you a licence to use it — it does not transfer ownership of the software itself. One purchase covers one person, on one computer at a time. You may use the plugin on your own music, including music you release and sell.</p>
+        </div>
+        <div class="mode-item">
+          <h3>Activation &amp; resets</h3>
+          <p>Each purchase comes with its own activation code. The code turns the plugin on, on the first computer it is entered on. Get a new computer? Contact us for a reset and the code moves over — resets for a genuine computer change are free. Codes are personal: please don't share, resell, or post yours.</p>
+        </div>
+        <div class="mode-item">
+          <h3>Refunds — all sales final</h3>
+          <p><strong>All sales are final — no refunds.</strong> Please check that your computer and DAW match the compatibility section before you buy. If a plugin will not run, contact support and we will help you get it running, but a purchase is not refunded. <em>Draft terms only — legal review is still required before commercial launch, and these terms are not final legal advice.</em></p>
+        </div>
+        <div class="mode-item">
+          <h3>Support</h3>
+          <p>Every download includes written install steps. If you get stuck, reach us through the <a href="https://tinyurl.com/theesixxx" target="_blank" rel="noopener">official site</a> and we'll help you get it running.</p>
+        </div>
+        <div class="mode-item">
+          <h3>Privacy</h3>
+          <p>This page collects nothing about you. When checkout opens, payment is handled by the checkout provider — we never see or store your card details. Activation checks only your code and a scrambled (hashed) ID of your computer; no personal files are read or sent.</p>
+        </div>
+        <div class="mode-item">
+          <h3>Independent &amp; original</h3>
+          <p>Every plugin here is original software, written from scratch, with its own name and its own look. This store is not affiliated with, endorsed by, or connected to any other company. Any platform or format names on this page are trademarks of their owners and are used only to describe what the plugins run on.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <span class="fbrand">THEESIXXX PLUGINS</span>
+        <a href="https://youtube.com/@theesixxx" target="_blank" rel="noopener">Music — youtube.com/@theesixxx</a>
+        <a href="https://tinyurl.com/theesixxxmerch" target="_blank" rel="noopener">Merch store</a>
+        <a href="https://tinyurl.com/theesixxx" target="_blank" rel="noopener">Official site</a>
+        <span class="copy">VOCAL MASTER 6 2.0™ · v2.0.0 · by THEESIXXX · Palm Beach, FL (561)</span>
+      </div>
+    </footer>
+
+    <script>
+      "use strict";
+      /* ---------- real product data (from the shipped plugin) ---------- */
+      var MODES = [
+        { id:"SOFT",     ch:"Soft, airy, close — the vocal sits right on your ear and nothing shouts.", chain:"High-pass 90 Hz · gentle 3:1 compression · mud cut, presence + air EQ · light saturation · subtle chorus doubling · 25% room reverb.", bars:[65,40,30,62,45,70,25,0,75] },
+        { id:"HARD",     ch:"Raw, loud, cutting — the vocal attacks and never backs down.", chain:"High-pass 80 Hz · hard 8:1 compression · presence + bite EQ · heavy saturation · short, dark room tail.", bars:[70,80,85,78,65,55,25,0,75] },
+        { id:"WAVYTUNE", ch:"The tuned studio vocal — notes snap to key, from transparent polish to a hard robotic snap.", chain:"Pitch correction first (key, scale, retune), then the full SOFT chain runs unchanged after it.", bars:[65,40,30,62,45,70,25,80,75] },
+        { id:"ROCK",     ch:"Forward, punchy, band-ready — cuts through guitars without sounding processed.", chain:"High-pass 100–150 Hz · FET-style 4:1 compression · presence 1–4 kHz · light grit · ducked reverb and delay sends.", bars:[68,55,40,70,40,60,20,0,76] },
+        { id:"METAL",    ch:"Dense, relentless, huge — every word lands at full weight.", chain:"High-pass 120–160 Hz · serial FET → opto compression · de-esser · cut-through EQ + 8–10 kHz air · parallel distortion texture · quiet space buses.", bars:[72,88,80,82,75,60,15,0,76] },
+        { id:"RADIO",    ch:"Glossy, loud, instantly finished — sounds like it already came off the radio.", chain:"Light tuning · high-pass · de-esser · serial FET + opto compression, ~5 dB each · presence + air · ducked sends · output limiter.", bars:[68,70,35,75,45,70,18,40,78] },
+        { id:"PA",       ch:"Clear and feedback-proof in a real room — the vocal wins over the room, not the other way around.", chain:"Feedback control + resonance taming first · FET compression · de-esser · light tape saturation · channel EQ shaped to the room · modest sends.", bars:[65,50,25,65,30,50,15,0,75] },
+        { id:"PHONE",    ch:"The voice down a phone line — small, mid-rangey, instantly lo-fi and recognizable.", chain:"Bandpass: everything outside 300 Hz – 5 kHz goes away · mid bump ~1.5–2 kHz · heavy limiting · light lo-fi grit.", bars:[70,90,45,80,60,5,0,0,75] },
+        { id:"RAP",      ch:"Punchy, present, polished — every word sharp and in front of the beat.", chain:"Tuning first · high-pass 80–100 Hz · mud cut · presence 3–5 kHz + air · firm 4:1–8:1 compression · de-esser · ducked room + delay sends.", bars:[68,65,45,75,50,72,18,45,77] },
+        { id:"COUNTRY",  ch:"Warm, honest, natural — the vocal sounds like a person in a room, not a product.", chain:"Warm 200–400 Hz body kept · gentle transparent ~3:1 compression · smooth presence · tape warmth · room reverb over plate · slapback on hooks.", bars:[65,38,25,62,35,60,28,15,75] }
+      ];
+      var MICS = [
+        { n:"Silk Tube",        c:"Bright, airy tube condenser — forward presence, big open highs.", best:"Modern rap and pop vocals that need shine" },
+        { n:"Classic FET",      c:"Warm, versatile large-diaphragm condenser — the all-rounder.", best:"Almost any voice, any genre" },
+        { n:"Vintage Valve",    c:"Thick, warm vintage tube — rich lows, smooth rolled highs.", best:"Intimate, warm vocals" },
+        { n:"Smooth Valve",     c:"Warm, smooth tube — silky, never harsh, a touch clearer than Vintage Valve.", best:"Silky sung vocals" },
+        { n:"Modern Clear",     c:"Clean, crisp modern condenser — low noise, tight and detailed.", best:"Crisp modern vocals, doubles, stacks" },
+        { n:"Classic Air",      c:"Shimmering vintage tube — open, silky, sparkling highs.", best:"Airy sung hooks, open-sounding leads" },
+        { n:"Studio Dynamic",   c:"Warm dynamic mic — rejects room noise, loves loud sources.", best:"Rap, rock, untreated rooms" },
+        { n:"Broadcast King",   c:"Smooth broadcast dynamic — controlled, steady, no surprises.", best:"Spoken word, radio-style vocals, close mic work" },
+        { n:"Stage Standard",   c:"Mid-forward live dynamic — cuts through a loud stage.", best:"Live-sounding aggressive vocals" },
+        { n:"Velvet Ribbon",    c:"Warm ribbon — smooth highs, natural, soft, never edgy.", best:"Soft vocals, harsh voices that need taming" },
+        { n:"Multi-Pattern Pro",c:"Clear, versatile condenser — bright, detailed, precise.", best:"Detailed vocals, harmonies, bright leads" },
+        { n:"Tube Legend",      c:"Big, airy vintage tube — open, silky, larger than life.", best:"Lead vocals that need to sound expensive and wide open" }
+      ];
+      var BARNAMES = ["INPUT","COMP","SATURATION","PRESENCE","TEXTURE","AIR","REVERB","TUNE","OUTPUT"];
+      /* [name, family, base(0 SOFT / 1 HARD), input, comp, sat, pres, texture, air, reverb, tune, output] */
+      var PRESETS = [
+      ["Velvet Tears","Emo Tears",0,69,39,28,66,45,69,23,59,76],
+["Starlight Ghost","Emo Tears",0,69,43,34,61,47,74,22,57,79],
+["Pastel Pain","Emo Tears",0,63,43,26,66,48,69,22,59,75],
+["Midnight Roses","Emo Tears",0,62,37,28,59,45,67,26,60,73],
+["Glass Heart","Emo Tears",0,62,42,29,66,42,71,23,64,72],
+["Faded Angel","Emo Tears",0,64,36,33,65,41,67,22,64,73],
+["Lonely Star","Emo Tears",0,67,38,34,64,43,70,28,59,73],
+["Broken Halo","Emo Tears",0,69,40,31,60,48,68,25,57,71],
+["Sad Summer","Emo Tears",0,62,42,30,60,46,71,24,56,78],
+["Ghost Love","Emo Tears",0,62,36,32,63,42,66,27,59,74],
+["Black Mass","Trap Metal Rites",1,72,71,76,72,61,41,17,39,72],
+["Hex Dealer","Trap Metal Rites",1,66,79,80,75,59,48,17,42,78],
+["Occult Noise","Trap Metal Rites",1,67,76,83,76,58,42,15,44,71],
+["Ritual Rager","Trap Metal Rites",1,71,74,76,74,60,48,17,43,78],
+["Doom Preacher","Trap Metal Rites",1,69,77,84,73,64,48,12,37,77],
+["Ashes Ritual","Trap Metal Rites",1,73,74,79,79,60,41,18,44,71],
+["Void Worship","Trap Metal Rites",1,74,73,81,75,64,45,17,38,72],
+["Nightmare Fuel","Trap Metal Rites",1,72,76,81,75,57,43,12,43,73],
+["Grave Digger","Trap Metal Rites",1,69,78,80,74,62,41,17,42,79],
+["Serpent Tongue","Trap Metal Rites",1,73,71,83,79,56,48,17,42,76],
+["Palm Tree Trap","Florida Underground",0,66,57,41,68,51,52,16,53,73],
+["Mud Money","Florida Underground",0,64,56,47,67,49,54,17,54,77],
+["Boom Buffet","Florida Underground",0,65,54,49,69,46,56,19,48,72],
+["Dropout Kings","Florida Underground",0,71,59,43,68,54,57,16,52,76],
+["Underground Royalty","Florida Underground",0,64,54,43,64,54,55,16,53,74],
+["Basement Legends","Florida Underground",0,69,59,47,64,54,56,20,49,78],
+["Dirt Road Deluxe","Florida Underground",0,69,56,45,66,52,57,21,46,73],
+["Slap House","Florida Underground",0,69,55,43,69,54,53,16,49,79],
+["Gold Grillz","Florida Underground",0,69,57,49,65,50,52,16,54,75],
+["Trap Mansion","Florida Underground",0,72,53,44,66,51,59,15,50,78],
+["Voltage Rage","Rage Switch",1,72,89,92,84,71,47,12,59,77],
+["Static Shock","Rage Switch",1,73,87,89,81,70,52,14,51,78],
+["Mosh Pit Demon","Rage Switch",1,74,89,85,82,67,53,11,53,74],
+["Bass Riot","Rage Switch",1,76,88,87,77,67,53,15,57,80],
+["Neon Rebellion","Rage Switch",1,69,89,91,83,70,49,13,59,76],
+["Electric Funeral","Rage Switch",1,76,87,85,82,69,54,14,55,74],
+["Riot Starter","Rage Switch",1,71,84,90,84,72,50,10,56,78],
+["Turbo Loner","Rage Switch",1,68,84,86,81,68,50,13,54,74],
+["Hyper Drive","Rage Switch",1,72,83,86,80,69,49,13,56,81],
+["Chaos Kid","Rage Switch",1,68,81,89,83,72,54,9,54,81],
+["Pixel Heart","Digital Sadboys",0,68,42,37,71,73,76,20,80,75],
+["Glitch Popstar","Digital Sadboys",0,67,42,38,69,77,80,23,79,78],
+["Neon Sadboy","Digital Sadboys",0,65,41,36,66,73,80,25,84,71],
+["Cyber Angel","Digital Sadboys",0,65,43,38,67,72,78,22,82,75],
+["Blue Screen Love","Digital Sadboys",0,64,49,34,66,72,76,19,81,74],
+["Virtual Vendetta","Digital Sadboys",0,61,48,34,71,77,81,19,77,74],
+["Synth Sorrow","Digital Sadboys",0,62,48,38,73,72,78,21,84,79],
+["Data Ghost","Digital Sadboys",0,67,47,34,68,72,81,21,82,78],
+["Pop Punk Hacker","Digital Sadboys",0,64,46,31,71,73,84,25,76,75],
+["Digital Tears","Digital Sadboys",0,69,43,36,67,74,77,20,77,71],
+["Air Thief","Air Emo",0,62,39,29,55,59,86,32,53,74],
+["Breathless","Air Emo",0,62,34,27,61,53,84,32,56,75],
+["Clouded Mind","Air Emo",0,64,31,28,62,58,83,31,56,74],
+["Silver Lungs","Air Emo",0,64,34,22,59,55,81,32,58,71],
+["Hollow Heart","Air Emo",0,58,35,28,54,57,88,29,56,71],
+["Dizzy Spells","Air Emo",0,59,31,25,62,54,85,28,53,73],
+["Night Drive Emo","Air Emo",0,58,31,25,57,56,84,30,54,75],
+["Frostbite Feelings","Air Emo",0,59,32,24,58,51,84,32,53,69],
+["Chemical Hearts","Air Emo",0,61,34,26,59,57,81,33,58,75],
+["Wasted Youth","Air Emo",0,66,34,24,56,54,87,29,58,73],
+["Motor City Menace","Motor City Technical",0,68,59,20,89,31,61,8,25,81],
+["Lyrical Assassin","Motor City Technical",0,71,60,20,85,33,56,11,24,74],
+["Rhyme Machine","Motor City Technical",0,66,56,17,83,31,60,12,25,82],
+["Battle Rap King","Motor City Technical",0,67,60,24,86,36,64,10,24,76],
+["Flow Surgeon","Motor City Technical",0,65,61,19,87,39,59,13,28,76],
+["Mic Massacre","Motor City Technical",0,70,56,21,84,31,57,9,24,82],
+["Verse Villain","Motor City Technical",0,64,63,18,89,36,61,13,28,80],
+["Angry Poet","Motor City Technical",0,66,63,24,87,33,63,11,23,78],
+["Rapid Fire Rhymes","Motor City Technical",0,65,60,18,86,38,62,11,23,78],
+["Underdog Anthem","Motor City Technical",0,71,63,21,89,38,57,7,26,80],
+["Tomb Stone","Grave Wave",1,68,83,95,78,68,35,15,31,79],
+["Casket Chorus","Grave Wave",1,74,84,94,78,66,32,18,32,78],
+["Midnight Horror","Grave Wave",1,73,77,92,78,66,37,14,39,72],
+["Blood Moon Rising","Grave Wave",1,76,79,94,85,72,37,12,34,80],
+["Haunted Static","Grave Wave",1,74,80,90,83,67,35,16,39,76],
+["Skull Season","Grave Wave",1,72,76,90,81,69,32,18,31,74],
+["Witching Hour","Grave Wave",1,73,82,95,78,74,33,15,33,78],
+["Demon Choir","Grave Wave",1,70,84,94,82,71,39,18,37,77],
+["Blackout Ritual","Grave Wave",1,71,76,95,82,72,36,18,34,76],
+["Coffin Nails","Grave Wave",1,72,82,95,78,66,31,16,34,75],
+["Dreamy Drip","Cloud Drip",0,64,39,32,63,67,71,31,66,77],
+["Hazy Days","Cloud Drip",0,64,40,27,60,71,68,32,62,70],
+["Silk Road Dreams","Cloud Drip",0,62,40,30,56,70,68,32,67,75],
+["Moonlight Swim","Cloud Drip",0,64,37,25,62,72,70,30,65,71],
+["Velvet Sky","Cloud Drip",0,63,40,30,58,72,65,31,66,70],
+["Drifting Away","Cloud Drip",0,64,42,30,62,67,66,32,68,76],
+["Soft Focus","Cloud Drip",0,65,38,28,56,66,64,34,61,76],
+["Misty Morning","Cloud Drip",0,62,35,30,60,74,66,30,67,71],
+["Cloud Nine","Cloud Drip",0,61,41,31,64,72,70,30,62,73],
+["Lazy River","Cloud Drip",0,64,41,28,63,70,69,32,62,72],
+["Safety Pin Saints","Punk Rap Riot",1,74,66,64,69,55,54,20,39,75],
+["Basement Show","Punk Rap Riot",1,70,65,59,71,51,51,22,37,72],
+["DIY Or Die","Punk Rap Riot",1,66,64,61,72,52,51,21,36,73],
+["Kickflip Kids","Punk Rap Riot",1,67,62,56,68,52,50,18,43,78],
+["Garage Rebellion","Punk Rap Riot",1,74,66,62,71,56,46,20,44,77],
+["Noise Complaint","Punk Rap Riot",1,74,69,59,68,57,51,19,43,80],
+["Broken Strings","Punk Rap Riot",1,68,68,56,69,53,46,18,37,74],
+["Teenage Riot","Punk Rap Riot",1,69,62,62,76,52,50,17,40,75],
+["Spray Paint Stars","Punk Rap Riot",1,70,62,62,68,55,51,17,39,78],
+["Mosh Pit Poetry","Punk Rap Riot",1,69,69,61,68,56,47,23,41,72]
+      ];
+
+      /* ---------- state ---------- */
+      var state = { mode:"SOFT", preset:0, mic:1, locked:true, dry:false, bars:MODES[0].bars.slice(), focus:8 };
+
+      var $ = function(id){ return document.getElementById(id); };
+      var modeGrid=$("modeGrid"), barsEl=$("bars");
+
+      /* ---------- build mode buttons ---------- */
+      MODES.forEach(function(m){
+        var b=document.createElement("button");
+        b.className="mode-btn"; b.textContent=m.id; b.dataset.mode=m.id;
+        b.addEventListener("click",function(){ setMode(m.id); });
+        modeGrid.appendChild(b);
+      });
+
+      /* ---------- build bars ---------- */
+      var barRows=[];
+      BARNAMES.forEach(function(name,i){
+        var row=document.createElement("div"); row.className="bar-row";
+        var lab=document.createElement("span"); lab.className="blabel"; lab.textContent=name;
+        var track=document.createElement("div"); track.className="bar-track";
+        var fill=document.createElement("div"); fill.className="bar-fill"; track.appendChild(fill);
+        var val=document.createElement("span"); val.className="bar-val"; val.textContent="0";
+        row.appendChild(lab); row.appendChild(track); row.appendChild(val);
+        barsEl.appendChild(row);
+        barRows.push({row:row,track:track,fill:fill,val:val});
+        var setFromEvent=function(e){
+          var r=track.getBoundingClientRect();
+          var x=(e.touches?e.touches[0].clientX:e.clientX)-r.left;
+          var v=Math.round(Math.max(0,Math.min(1,x/r.width))*100);
+          setBar(i,v,true);
+        };
+        track.addEventListener("pointerdown",function(e){
+          track.setPointerCapture(e.pointerId); setFromEvent(e);
+          var move=function(ev){ setFromEvent(ev); };
+          var up=function(){ track.removeEventListener("pointermove",move); track.removeEventListener("pointerup",up); };
+          track.addEventListener("pointermove",move); track.addEventListener("pointerup",up);
+        });
+      });
+
+      function setBar(i,v,focusIt){
+        state.bars[i]=v;
+        barRows[i].fill.style.width=v+"%";
+        barRows[i].val.textContent=v;
+        if(focusIt){ state.focus=i; refreshFocus(); }
+      }
+      function refreshFocus(){
+        barRows.forEach(function(r,i){ r.row.classList.toggle("focused", i===state.focus); });
+        var nm = (state.mode==="WAVYTUNE" && state.focus===7) ? "TUNE = RETUNE" : BARNAMES[state.focus];
+        $("focusLine").innerHTML = nm+" — <b>"+state.bars[state.focus]+"</b>";
+      }
+      function loadBars(vals){ vals.forEach(function(v,i){ setBar(i,v,false); }); refreshFocus(); }
+
+      /* ---------- modes ---------- */
+      function setMode(id){
+        state.mode=id;
+        var m=MODES.filter(function(x){return x.id===id;})[0];
+        document.querySelectorAll(".mode-btn").forEach(function(b){ b.classList.toggle("active", b.dataset.mode===id); });
+        $("modeChar").innerHTML="<strong>"+id+".</strong> "+m.ch;
+        $("wavyPanel").classList.toggle("on", id==="WAVYTUNE");
+        loadBars(m.bars);
+      }
+
+      /* ---------- presets ---------- */
+      var presetSelect=$("presetSelect");
+      var fams=[]; PRESETS.forEach(function(p){ if(fams.indexOf(p[1])<0) fams.push(p[1]); });
+      fams.forEach(function(f){
+        var og=document.createElement("optgroup"); og.label=f;
+        PRESETS.forEach(function(p,i){ if(p[1]===f){ var o=document.createElement("option"); o.value=i; o.textContent=p[0]; og.appendChild(o); } });
+        presetSelect.appendChild(og);
+      });
+      function setPreset(i,announce){
+        state.preset=(i+PRESETS.length)%PRESETS.length;
+        var p=PRESETS[state.preset];
+        presetSelect.value=state.preset;
+        $("presetName").textContent=p[0];
+        $("presetMeta").textContent=p[1].toUpperCase()+" · BASE: "+(p[2]===0?"SOFT":"HARD")+" · "+(state.preset+1)+" / 100";
+        var base = p[2]===0 ? "SOFT" : "HARD";
+        state.mode=base;
+        document.querySelectorAll(".mode-btn").forEach(function(b){ b.classList.toggle("active", b.dataset.mode===base); });
+        var m=MODES.filter(function(x){return x.id===base;})[0];
+        $("modeChar").innerHTML="<strong>"+base+".</strong> "+m.ch;
+        $("wavyPanel").classList.remove("on");
+        loadBars(p.slice(3));
+        if(announce){ state.focus=8; refreshFocus(); }
+      }
+      $("presetPrev").addEventListener("click",function(){ setPreset(state.preset-1,true); });
+      $("presetNext").addEventListener("click",function(){ setPreset(state.preset+1,true); });
+      presetSelect.addEventListener("change",function(){ setPreset(parseInt(presetSelect.value,10),true); });
+
+      /* ---------- mics ---------- */
+      var micSelect=$("micSelect");
+      MICS.forEach(function(m,i){ var o=document.createElement("option"); o.value=i; o.textContent=m.n; micSelect.appendChild(o); });
+      function setMic(i){
+        state.mic=(i+MICS.length)%MICS.length;
+        var m=MICS[state.mic];
+        micSelect.value=state.mic;
+        $("micName").textContent=m.n;
+        $("micMeta").textContent="MIC "+(state.mic+1)+" / 12";
+        $("micNote").innerHTML=m.c+" <em>Best for:</em> "+m.best+".";
+      }
+      $("micPrev").addEventListener("click",function(){ setMic(state.mic-1); });
+      $("micNext").addEventListener("click",function(){ setMic(state.mic+1); });
+      micSelect.addEventListener("change",function(){ setMic(parseInt(micSelect.value,10)); });
+
+      /* ---------- wavytune selects ---------- */
+      ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"].forEach(function(k){
+        var o=document.createElement("option"); o.textContent=k; $("keySelect").appendChild(o);
+      });
+      ["Chromatic","Major","Minor","Major Pentatonic","Minor Pentatonic"].forEach(function(s){
+        var o=document.createElement("option"); o.textContent=s; $("scaleSelect").appendChild(o);
+      });
+
+      /* ---------- output screen simulation ---------- */
+      var locked=true, t=0;
+      $("lockBtn").addEventListener("click",function(){
+        locked=!locked;
+        this.classList.toggle("on",locked);
+        this.textContent = locked ? "OUTPUT LOCKED — CEILING −0.3 dB" : "OUTPUT UNLOCKED — LIMITER BYPASSED";
+      });
+      function setDry(d){
+        state.dry=d;
+        $("dryBtn").classList.toggle("on",d);
+        $("wetBtn").classList.toggle("on",!d);
+      }
+      $("dryBtn").addEventListener("click",function(){ setDry(true); });
+      $("wetBtn").addEventListener("click",function(){ setDry(false); });
+
+      setInterval(function(){
+        t+=0.13;
+        var raw;
+        if(state.dry){ raw=-13.5+Math.sin(t*1.7)*1.2; }
+        else{
+          var base=-24 + state.bars[0]*0.10 + state.bars[8]*0.24 + state.bars[1]*0.05;
+          raw=base + Math.sin(t*2.3)*2.4 + Math.sin(t*5.1)*1.1;
+        }
+        var limited=false, disp=raw;
+        if(locked && raw>-0.3){ disp=-0.3; limited=true; }
+        var dbEl=$("dbVal"), light=$("sigLight");
+        dbEl.textContent=(disp<0?"−":"+")+Math.abs(disp).toFixed(1);
+        light.className="light"+(disp>=0?" red":(disp>=-6?" yellow":""));
+        $("limitLine").textContent = limited ? "LIMITED — NO CLIP" : (disp>=0 ? "CLIPPING" : "");
+      },120);
+
+      /* ---------- modes section ---------- */
+      var specIdx=[1,2,3,5,6,7]; /* COMP SAT PRES AIR REV TUNE positions in bars */
+      var specNames=["COMP","SAT","PRES","AIR","REV","TUNE"];
+      var modeList=$("modeList");
+      MODES.forEach(function(m){
+        var spec=specNames.map(function(n,j){ return n+" "+m.bars[specIdx[j]]; }).join(" · ");
+        var d=document.createElement("div"); d.className="mode-item";
+        d.innerHTML="<h3>"+m.id+" <span class='spec'>"+spec+"</span></h3><p>"+m.ch+"</p><p class='chain'>"+m.chain+"</p>";
+        modeList.appendChild(d);
+      });
+
+      /* ---------- mics section ---------- */
+      var micGrid=$("micGrid");
+      MICS.forEach(function(m){
+        var d=document.createElement("div"); d.className="mic-card";
+        d.innerHTML="<h3>"+m.n+"</h3><p>"+m.c+"</p><div class='best'><b>BEST FOR</b>"+m.best+"</div>";
+        micGrid.appendChild(d);
+      });
+
+      /* ---------- presets section ---------- */
+      var famChips=$("famChips"), presetGrid=$("presetGrid"), curFam="All";
+      ["All"].concat(fams).forEach(function(f){
+        var c=document.createElement("button"); c.className="fam-chip"+(f==="All"?" on":""); c.textContent=f;
+        c.addEventListener("click",function(){
+          curFam=f;
+          document.querySelectorAll(".fam-chip").forEach(function(x){ x.classList.toggle("on", x.textContent===f); });
+          renderPresets();
+        });
+        famChips.appendChild(c);
+      });
+      function renderPresets(){
+        presetGrid.innerHTML="";
+        PRESETS.forEach(function(p,i){
+          if(curFam!=="All" && p[1]!==curFam) return;
+          var c=document.createElement("button"); c.className="preset-chip";
+          c.innerHTML=p[0]+"<small>"+p[1]+"</small>";
+          c.addEventListener("click",function(){
+            setPreset(i,true);
+            document.getElementById("pluginPanel").scrollIntoView({behavior:"smooth",block:"center"});
+          });
+          presetGrid.appendChild(c);
+        });
+      }
+      renderPresets();
+
+      /* ---------- init ---------- */
+      setMode("SOFT");
+      setPreset(0,false);
+      setMic(1);
+      setBar(8,state.bars[8],true);
+    </script>
+  <script>
+(function(){
+  var promoEnd = new Date('2026-12-31T23:59:59-05:00');
+  if (new Date() > promoEnd) {
+    var el = document.getElementById('promoPrice');
+    if (el) el.textContent = '$60.00';
+  }
+})();
+</script>
+</body>
+</html>
