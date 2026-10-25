@@ -102,7 +102,15 @@
       .test-checkout .btn.test-btn:hover { background: var(--warn); color: #141005; }
 
 
-      .hero-img { display:block; width:100%; max-width:940px; margin:18px auto 8px; border-radius:18px; border:1px solid #2c2c31; box-shadow:0 24px 60px rgba(0,0,0,.35); }
+      /* ---------- hero image: never stretch, fits phone screens ---------- */
+      html, body { max-width: 100vw; overflow-x: hidden; }
+      .hero-figure { margin: 0; max-width: 100%; width: 100%; overflow: hidden; }
+      .hero-img { display: block; width: 100%; max-width: 940px; max-width: 100%; height: auto; aspect-ratio: 1280 / 1000; object-fit: contain; margin: 18px auto 8px; border-radius: 18px; border: 1px solid #2c2c31; box-shadow: 0 24px 60px rgba(0,0,0,.35); }
+      img.hero-img { height: auto; }
+      /* ---------- interactive demo panel: fit phone width too ---------- */
+      .plugin-shell { max-width: 100%; width: 100%; overflow: hidden; }
+      .plugin { max-width: 100%; width: 100%; box-sizing: border-box; }
+      .stepper-row, .mode-grid, .bars { max-width: 100%; box-sizing: border-box; }
       .hero-caption { text-align:center; color:var(--muted); font-size:13px; margin:0 0 18px; }
       .features-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; margin-top:16px; }
       .feature { background:#131316; border:1px solid #2c2c31; border-radius:14px; padding:16px 18px; }
@@ -276,6 +284,12 @@
         .bars { grid-template-columns: 1fr; }
       }
       @media (max-width: 560px) {
+        .wrap { padding: 0 14px; }
+        .hero-img { width: 100%; max-width: 100%; height: auto; aspect-ratio: 1280 / 1000; object-fit: contain; border-radius: 12px; }
+        .hero-figure { max-width: 100%; overflow: hidden; }
+        .plugin-shell { padding: 16px 0 6px; overflow: hidden; }
+        .plugin { max-width: 100%; width: 100%; }
+        .stepper-row { flex-wrap: wrap; }
         nav.top .wrap { flex-wrap: wrap; height: auto; padding-top: 10px; padding-bottom: 10px; row-gap: 4px; column-gap: 16px; }
         .mode-grid { grid-template-columns: repeat(2, 1fr); }
         .mic-grid { grid-template-columns: 1fr; }
@@ -304,7 +318,7 @@
     <header class="hero wrap" id="top">
       <svg class="hero-crown" width="52" height="38" viewBox="0 0 30 22" fill="currentColor" aria-hidden="true"><path d="M2 18 0 5l7.5 5L15 2l7.5 8L30 5l-2 13H2zm2 2h22v2H4v-2z"/></svg>
       <h1>VOCAL MASTER&nbsp;<span class="gold">6</span> 2.0™</h1>
-      <figure style="margin:0;"><img class="hero-img" src="plugin-hero.png" alt="VOCAL MASTER 6 2.0 plugin interface" width="1280" height="1000"><figcaption class="hero-caption">VOCAL MASTER 6 2.0 — the plugin you are buying, shown as it appears in your DAW.</figcaption></figure>
+      <figure class="hero-figure"><img class="hero-img" src="plugin-hero.png" alt="VOCAL MASTER 6 2.0 plugin interface"><figcaption class="hero-caption">VOCAL MASTER 6 2.0 — the plugin you are buying, shown as it appears in your DAW.</figcaption></figure>
       <p class="sub">The vocal chain plugin by <strong>THEESIXXX</strong>. Fifteen modes, twelve mic characters, one hundred presets — wide gold bars with digital readouts, click-through &lt; &gt; arrows for MODE, PRESET and MIC, and a locked output stage so <strong>no preset can ever clip</strong>. One code, entered once, stamped in the box for easy re-activation.</p>
       <div class="statusrow">
         <span class="status"><span class="dot ok"></span>VERSION 2.0.0</span>
